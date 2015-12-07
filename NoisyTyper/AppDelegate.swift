@@ -44,7 +44,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
-        
+        if self.acquirePrivileges() {
+            self.startup()
+        }
+    }
+    func startup(){
         self.loaddVolume()
         
         self.createMenu()
@@ -184,6 +188,26 @@ extension AppDelegate{
         }else{
             self.loaddVolume()
         }
+    }
+    func acquirePrivileges() -> Bool {
+        let trusted = kAXTrustedCheckOptionPrompt.takeUnretainedValue()
+        let privOptions = [String(trusted):true]
+        let accessEnabled = AXIsProcessTrustedWithOptions(privOptions)
+        if accessEnabled != true {
+            let alert = NSAlert()
+            alert.messageText = "Enable NoisyTyper Using Accessibility feature"
+            alert.informativeText = "Once you have enabled NoisyTyper in System Preferences->Security and Privacy -> Privacy, click OK."
+            NSRunningApplication.currentApplication().activateWithOptions(NSApplicationActivationOptions.ActivateIgnoringOtherApps)
+            let response = alert.runModal()
+            if (response == NSModalResponseCancel) {
+                if AXIsProcessTrustedWithOptions(privOptions) == true {
+                    self.startup()
+                } else {
+                    NSApp.terminate(self)
+                }
+            }
+        }
+        return accessEnabled == true
     }
 }
 extension AVAudioPlayer{

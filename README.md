@@ -1,5 +1,5 @@
 <p align="center" >
-  <img src="https://raw.github.com/AFNetworking/AFNetworking/assets/afnetworking-logo.png" alt="AFNetworking" title="AFNetworking">
+  <img src="https://raw.githubusercontent.com/iAladdin/NoisyTyper-Swift/master/NoisyTyper/Assets.xcassets/AppIcon.appiconset/1024.png" alt="NoisyTyper" title="NoisyTyper">
 </p>
 
 # NoisyTyper-Swift

@@ -56,6 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSEvent.addGlobalMonitorForEventsMatchingMask(NSEventMask.KeyDownMask) { (event) -> Void in
             self.keyWasPressedFunction(event)
         }
+
     }
     func loaddVolume(){
         self.volumeLevel = NSUserDefaults.standardUserDefaults().floatForKey("NoisyTyperUserSettings-VolumeLevel")
@@ -90,7 +91,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func keyWasPressedFunction(event:NSEvent){
         let key = event.keyCode
-        
+
         if( key == 125 ){
             scrollDn?.pan = 0.7
             scrollDn?.rate = Float.random(0.85, 1.0)
@@ -189,6 +190,7 @@ extension AppDelegate{
             self.loaddVolume()
         }
     }
+
     func acquirePrivileges() -> Bool {
         let trusted = kAXTrustedCheckOptionPrompt.takeUnretainedValue()
         let privOptions = [String(trusted):true]
@@ -216,7 +218,10 @@ extension AVAudioPlayer{
         if appDelegate.isMuted {
             return
         }else{
-            self.play()
+            if self.playing && self.currentTime > 0.1{
+                self.currentTime = 0
+            }
+            self.playAtTime(self.deviceCurrentTime + 0.1)
         }
     }
 }

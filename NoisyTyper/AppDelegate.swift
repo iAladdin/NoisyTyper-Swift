@@ -18,6 +18,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var backspace:AVAudioPlayer? = nil
     var soundSpace:AVAudioPlayer? = nil
     var soundReturn:AVAudioPlayer? = nil
+    
+    var functionsKeyTempPool:[AVAudioPlayer?] = []
+    
     var soundKey:[AVAudioPlayer?] = []
 
     var menuItem:NSStatusItem? = nil
@@ -28,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func createMenu(){
         self.menuItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
         self.menuItem?.title = ""
-        let image = NSImage(named: "menuItem.tiff")
+        let image = NSImage(named: "menuItem")
         image?.template = true
         self.menuItem?.image = image
         self.menuItem?.highlightMode = true
@@ -106,37 +109,45 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         else if( key == 51 ){
             backspace?.pan = 0.75
-            backspace?.rate = Float.random(0.97, 1.03)
+            backspace?.rate = 0.97
             backspace?.volume = self.volumeLevel
             backspace?.playNoisy()
         }
         else if( key == 49 ){
-            soundSpace?.pan = Float.random(0.95, 1.05)
-            soundSpace?.volume = Float.random(0.8, 1.1)
-            soundSpace?.volume = self.volumeLevel
+            soundSpace?.pan = Float.random(-0.2, 0.2)
+            soundSpace?.volume = Float.random(self.volumeLevel - 0.3, self.volumeLevel)
             soundSpace?.playNoisy()
 
         }
         else if( key == 36 ){
-            soundReturn?.pan = 0.3
+            soundReturn?.pan = 0.5
             soundReturn?.rate = Float.random(0.99, 1.01)
             soundReturn?.volume = Float.random(self.volumeLevel - 0.4, self.volumeLevel)
             soundReturn?.playNoisy()
         }
         else{
-            let which = Int.random(0, soundKey.count - 1)
-            soundKey[which]?.rate =  Float.random(0.98, 1.02)
-            soundKey[which]?.volume = Float.random(self.volumeLevel - 0.4, self.volumeLevel)
+            let freeKeyplayer = self.findFreeKeyplayer()
+            freeKeyplayer?.rate =  Float.random(0.98, 1.02)
+            freeKeyplayer?.volume = Float.random(self.volumeLevel - 0.4, self.volumeLevel)
             if( key == 12 || key == 13 || key == 0 || key == 1 || key == 6 || key == 7 ){
-                soundKey[which]?.pan = -0.65
+                freeKeyplayer?.pan = -0.65
             }else if( key == 35 || key == 37 || key == 43 || key == 31 || key == 40 || key == 46 ){
-                soundKey[which]?.pan = 0.65
+                freeKeyplayer?.pan = 0.65
             }
             else{
-                soundKey[which]?.pan = Float.random(-0.3, 0.3)
+                freeKeyplayer?.pan = Float.random(-0.3, 0.3)
             }
-            soundKey[which]?.playNoisy()
+            freeKeyplayer?.play()
         }
+    }
+    func findFreeKeyplayer()->AVAudioPlayer?{
+        var result: AVAudioPlayer? = nil
+        repeat {
+            let which = Int.random(0, soundKey.count - 1)
+            result = soundKey[which]
+            
+        }while (result?.playing == true)
+        return result
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
@@ -212,28 +223,6 @@ extension AppDelegate{
         return accessEnabled == true
     }
 }
-extension AVAudioPlayer{
-    public func playNoisy(){
-        let appDelegate = NSApp.delegate as! AppDelegate
-        if appDelegate.isMuted {
-            return
-        }else{
-            if self.playing && self.currentTime > 0.1{
-                self.currentTime = 0
-            }
-            self.playAtTime(self.deviceCurrentTime + 0.1)
-        }
-    }
-}
-public extension Float {
-    public static func random(lower: Float = 0, _ upper: Float = 100) -> Float {
-        return (Float(arc4random()) / 0xFFFFFFFF) * (upper - lower) + lower
-    }
-}
-public extension Int {
-    public static func random(lower: Int = 0, _ upper: Int = 100) -> Int {
-        return lower + Int(arc4random_uniform(UInt32(upper - lower + 1)))
-    }
-}
+
 
 

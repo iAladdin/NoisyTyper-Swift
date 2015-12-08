@@ -8,6 +8,10 @@
 		<data>
 		pU6vTMly/o0m1pjDeqfybIsyMxk=
 		</data>
+		<key>Resources/Assets.car</key>
+		<data>
+		EWCZ/cwHcdELdhbfjRSLQkn+qZk=
+		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash</key>
@@ -21,7 +25,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6RsTXAtaOeEg38GI3HzTrEViVZk=
+			aa2IZIEbH61LQJDbEINY24VAPk8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -65,10 +69,6 @@
 		<key>Resources/key-new-05.mp3</key>
 		<data>
 		4GFDluK23c4p0N7oHDePI/b8L/4=
-		</data>
-		<key>Resources/menuItem.tiff</key>
-		<data>
-		0h68JhO/iLILM7h8cwu0WPwvTNY=
 		</data>
 		<key>Resources/return-new.mp3</key>
 		<data>
@@ -209,6 +209,10 @@
 		<data>
 		pU6vTMly/o0m1pjDeqfybIsyMxk=
 		</data>
+		<key>Resources/Assets.car</key>
+		<data>
+		EWCZ/cwHcdELdhbfjRSLQkn+qZk=
+		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash</key>
@@ -222,7 +226,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6RsTXAtaOeEg38GI3HzTrEViVZk=
+			aa2IZIEbH61LQJDbEINY24VAPk8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -266,10 +270,6 @@
 		<key>Resources/key-new-05.mp3</key>
 		<data>
 		4GFDluK23c4p0N7oHDePI/b8L/4=
-		</data>
-		<key>Resources/menuItem.tiff</key>
-		<data>
-		0h68JhO/iLILM7h8cwu0WPwvTNY=
 		</data>
 		<key>Resources/return-new.mp3</key>
 		<data>

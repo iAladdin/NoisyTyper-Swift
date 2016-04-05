@@ -27,6 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var volumeLevel:Float = 1.0
     var isMuted:Bool = false
+    var isCharOnly:Bool = false
     
     func createMenu(){
         self.menuItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
@@ -37,10 +38,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.menuItem?.highlightMode = true
         
         let menu = NSMenu()
-        menu.addItem(NSMenuItem(title: "🔊 ↑", action: Selector("upVolume"), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "🔇 -", action: Selector("mute"), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "🔉 ↓", action: Selector("downVolume"), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title:"👋🏼 Bye", action: Selector("exit"), keyEquivalent:""))
+        menu.addItem(NSMenuItem(title: "🔊 ↑", action: #selector(AppDelegate.upVolume), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "🔇 -", action: #selector(AppDelegate.mute), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "🔉 ↓", action: #selector(AppDelegate.downVolume), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "🔠 all character", action: #selector(AppDelegate.onlyChar), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title:"👋🏼 Bye", action: #selector(AppDelegate.exit), keyEquivalent:""))
         self.menuItem?.menu = menu
     }
     
@@ -53,19 +55,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func startup(){
         self.loaddVolume()
-        
         self.createMenu()
+        self.loadSettings();
         self.loadSounds()
         NSEvent.addGlobalMonitorForEventsMatchingMask(NSEventMask.KeyDownMask) { (event) -> Void in
             self.keyWasPressedFunction(event)
         }
-
     }
     func loaddVolume(){
         self.volumeLevel = NSUserDefaults.standardUserDefaults().floatForKey("NoisyTyperUserSettings-VolumeLevel")
         if self.volumeLevel == 0 {
             self.volumeLevel = 1.0
         }
+    }
+    func loadSettings(){
+        self.isCharOnly = NSUserDefaults.standardUserDefaults().boolForKey("NoisyTyperUserSettings-isCharOnly")
+        self.configUIWithSettings();
     }
     func loadSound(name:String)->AVAudioPlayer?{
         var soundURL:NSURL?
@@ -93,31 +98,44 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         soundKey.append(loadSound("key-new-05"))
     }
     func keyWasPressedFunction(event:NSEvent){
+        if self.isMuted {
+            return
+        }
+        
         let key = event.keyCode
-
+        
         if( key == 125 ){
-            scrollDn?.pan = 0.7
-            scrollDn?.rate = Float.random(0.85, 1.0)
-            scrollDn?.volume = self.volumeLevel
-            scrollDn?.playNoisy()
+            if !self.isCharOnly{
+                scrollDn?.pan = 0.7
+                scrollDn?.rate = Float.random(0.85, 1.0)
+                scrollDn?.volume = self.volumeLevel
+                scrollDn?.playNoisy()
+            }
+            
         }
         else if( key == 126 ){
-            scrollUp?.pan = -0.7
-            scrollUp?.rate = Float.random(0.85, 1.0)
-            scrollUp?.volume = self.volumeLevel
-            scrollUp?.playNoisy()
+            if !self.isCharOnly{
+                scrollUp?.pan = -0.7
+                scrollUp?.rate = Float.random(0.85, 1.0)
+                scrollUp?.volume = self.volumeLevel
+                scrollUp?.playNoisy()
+            }
         }
         else if( key == 51 ){
-            backspace?.pan = 0.75
-            backspace?.rate = 0.97
-            backspace?.volume = self.volumeLevel
-            backspace?.playNoisy()
+            if !self.isCharOnly{
+                backspace?.pan = 0.75
+                backspace?.rate = 0.97
+                backspace?.volume = self.volumeLevel
+                backspace?.playNoisy()
+            }
         }
         else if( key == 49 ){
-            soundSpace?.pan = Float.random(-0.2, 0.2)
-            soundSpace?.volume = Float.random(self.volumeLevel - 0.3, self.volumeLevel)
-            soundSpace?.playNoisy()
-
+            if !self.isCharOnly{
+                soundSpace?.pan = Float.random(-0.2, 0.2)
+                soundSpace?.volume = Float.random(self.volumeLevel - 0.3, self.volumeLevel)
+                soundSpace?.playNoisy()
+            }
+            
         }
         else if( key == 36 ){
             soundReturn?.pan = 0.5
@@ -126,19 +144,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             soundReturn?.playNoisy()
         }
         else{
-            let freeKeyplayer = self.findFreeKeyplayer()
-            freeKeyplayer?.rate =  Float.random(0.98, 1.02)
-            freeKeyplayer?.volume = Float.random(self.volumeLevel - 0.4, self.volumeLevel)
-            if( key == 12 || key == 13 || key == 0 || key == 1 || key == 6 || key == 7 ){
-                freeKeyplayer?.pan = -0.65
-            }else if( key == 35 || key == 37 || key == 43 || key == 31 || key == 40 || key == 46 ){
-                freeKeyplayer?.pan = 0.65
-            }
-            else{
-                freeKeyplayer?.pan = Float.random(-0.3, 0.3)
-            }
-            freeKeyplayer?.play()
+            self.playCharNoisy(key);
         }
+    }
+    func playCharNoisy(key:UInt16){
+        if self.isCharOnly{
+            if (key == 123 || key == 124 || key == 127 ){
+                return;
+            }
+        }
+        
+        let freeKeyplayer = self.findFreeKeyplayer()
+        freeKeyplayer?.rate =  Float.random(0.98, 1.02)
+        freeKeyplayer?.volume = Float.random(self.volumeLevel - 0.4, self.volumeLevel)
+        if( key == 12 || key == 13 || key == 0 || key == 1 || key == 6 || key == 7 ){
+            freeKeyplayer?.pan = -0.65
+        }else if( key == 35 || key == 37 || key == 43 || key == 31 || key == 40 || key == 46 ){
+            freeKeyplayer?.pan = 0.65
+        }
+        else{
+            freeKeyplayer?.pan = Float.random(-0.3, 0.3)
+        }
+        freeKeyplayer?.play()
     }
     func findFreeKeyplayer()->AVAudioPlayer?{
         var result: AVAudioPlayer? = nil
@@ -161,15 +188,32 @@ extension AppDelegate{
     func exit(){
         NSApp.terminate(nil)
     }
-    func mute(){
-        self.isMuted = !self.isMuted
-        let menuItem = self.menuItem?.menu?.itemAtIndex(1)
-        if self.isMuted{
-            menuItem?.title = "🔈 +"
+    func configUIWithSettings(){
+        let charMenuItem = self.menuItem?.menu?.itemAtIndex(3)
+        if self.isCharOnly{
+            charMenuItem?.title = "🔠 only character"
         }else{
-            menuItem?.title = "🔇 -"
+            charMenuItem?.title = "🔠 all character"
             self.playOpenSound()
         }
+        
+        let muteMenuItem = self.menuItem?.menu?.itemAtIndex(1)
+        if self.isMuted{
+            muteMenuItem?.title = "🔈 +"
+        }else{
+            muteMenuItem?.title = "🔇 -"
+            self.playOpenSound()
+        }
+    }
+    func onlyChar(){
+        self.isCharOnly = !isCharOnly
+        NSUserDefaults.standardUserDefaults().setBool(self.isCharOnly, forKey: "NoisyTyperUserSettings-isCharOnly")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        self.configUIWithSettings()
+    }
+    func mute(){
+        self.isMuted = !self.isMuted
+        self.configUIWithSettings()
     }
     func playTestSound(){
         soundKey[0]?.pan = 0.3
@@ -185,16 +229,17 @@ extension AppDelegate{
     }
 
     func updateVolume(){
+        print(volumeLevel);
         NSUserDefaults.standardUserDefaults().setFloat(volumeLevel, forKey: "NoisyTyperUserSettings-VolumeLevel")
         NSUserDefaults.standardUserDefaults().synchronize()
         self.playTestSound()
     }
     func upVolume(){
-        volumeLevel = volumeLevel + 0.1
+        volumeLevel = volumeLevel + 0.3
         self.updateVolume()
     }
     func downVolume(){
-        volumeLevel = volumeLevel - 0.1
+        volumeLevel = volumeLevel - 0.3
         if (volumeLevel - 0.4) > 0{
             self.updateVolume()
         }else{

@@ -29,56 +29,54 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var isMuted:Bool = false
     
     func createMenu(){
-        self.menuItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
+        self.menuItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         self.menuItem?.title = ""
-        let image = NSImage(named: "menuItem")
-        image?.template = true
+        let image = NSImage(named: NSImage.Name(rawValue: "menuItem"))
+        image?.isTemplate = true
         self.menuItem?.image = image
         self.menuItem?.highlightMode = true
         
         let menu = NSMenu()
-        menu.addItem(NSMenuItem(title: "🔊 ↑", action: Selector("upVolume"), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "🔇 -", action: Selector("mute"), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "🔉 ↓", action: Selector("downVolume"), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title:"👋🏼 Bye", action: Selector("exit"), keyEquivalent:""))
+        menu.addItem(NSMenuItem(title: "🔊 ↑", action: #selector(upVolume), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "🔇 -", action: #selector(mute), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "🔉 ↓", action: #selector(downVolume), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title:"👋🏼 Bye", action: #selector(exit), keyEquivalent:""))
         self.menuItem?.menu = menu
     }
     
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
+    func applicationDidFinishLaunching(_ notification: Notification) {
         if self.acquirePrivileges() {
             self.startup()
         }
     }
+    
     func startup(){
         self.loaddVolume()
         
         self.createMenu()
         self.loadSounds()
-        NSEvent.addGlobalMonitorForEventsMatchingMask(NSEventMask.KeyDownMask) { (event) -> Void in
-            self.keyWasPressedFunction(event)
+        NSEvent.addGlobalMonitorForEvents(matching: .keyDown) { (event) -> Void in
+            self.keyWasPressedFunction(event: event)
         }
 
     }
     func loaddVolume(){
-        self.volumeLevel = NSUserDefaults.standardUserDefaults().floatForKey("NoisyTyperUserSettings-VolumeLevel")
+        self.volumeLevel = UserDefaults.standard.float(forKey: "NoisyTyperUserSettings-VolumeLevel")
         if self.volumeLevel == 0 {
             self.volumeLevel = 1.0
         }
     }
-    func loadSound(name:String)->AVAudioPlayer?{
-        var soundURL:NSURL?
-        soundURL = NSBundle.mainBundle().URLForResource(name, withExtension: "mp3")
+    func loadSound(_ name:String)->AVAudioPlayer? {
         var player:AVAudioPlayer?
-        if let url = soundURL{
+        if let soundURL = Bundle.main.url(forResource: name, withExtension: "mp3") {
             do {
-                player = try AVAudioPlayer(contentsOfURL: url)
-            }catch {
-                
+                player = try AVAudioPlayer(contentsOf: soundURL)
+            } catch {
+                print("initiate player for sound \(name) failed")
             }
         }
-       return player
+        return player
     }
     func loadSounds(){
         scrollDn = loadSound("scrollDown")
@@ -146,24 +144,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let which = Int.random(0, soundKey.count - 1)
             result = soundKey[which]
             
-        }while (result?.playing == true)
+        }while (result?.isPlaying == true)
         return result
     }
     
-    func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
-    }
 }
 
 //Utils
 extension AppDelegate{
     
-    func exit(){
+    @objc func exit(){
         NSApp.terminate(nil)
     }
-    func mute(){
+    @objc func mute(){
         self.isMuted = !self.isMuted
-        let menuItem = self.menuItem?.menu?.itemAtIndex(1)
+        let menuItem = self.menuItem?.menu?.item(at: 1)
         if self.isMuted{
             menuItem?.title = "🔈 +"
         }else{
@@ -185,15 +180,15 @@ extension AppDelegate{
     }
 
     func updateVolume(){
-        NSUserDefaults.standardUserDefaults().setFloat(volumeLevel, forKey: "NoisyTyperUserSettings-VolumeLevel")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.set(volumeLevel, forKey: "NoisyTyperUserSettings-VolumeLevel")
+        UserDefaults.standard.synchronize()
         self.playTestSound()
     }
-    func upVolume(){
+    @objc func upVolume(){
         volumeLevel = volumeLevel + 0.1
         self.updateVolume()
     }
-    func downVolume(){
+    @objc func downVolume(){
         volumeLevel = volumeLevel - 0.1
         if (volumeLevel - 0.4) > 0{
             self.updateVolume()
@@ -204,16 +199,16 @@ extension AppDelegate{
 
     func acquirePrivileges() -> Bool {
         let trusted = kAXTrustedCheckOptionPrompt.takeUnretainedValue()
-        let privOptions = [String(trusted):true]
-        let accessEnabled = AXIsProcessTrustedWithOptions(privOptions)
+        let privOptions = [String(trusted): true]
+        let accessEnabled = AXIsProcessTrustedWithOptions(privOptions as CFDictionary)
         if accessEnabled != true {
             let alert = NSAlert()
             alert.messageText = "Enable NoisyTyper Using Accessibility feature"
             alert.informativeText = "Once you have enabled NoisyTyper in System Preferences->Security and Privacy -> Privacy, click OK."
-            NSRunningApplication.currentApplication().activateWithOptions(NSApplicationActivationOptions.ActivateIgnoringOtherApps)
+            NSRunningApplication.current.activate(options: NSApplication.ActivationOptions.activateIgnoringOtherApps)
             let response = alert.runModal()
-            if (response == NSModalResponseCancel) {
-                if AXIsProcessTrustedWithOptions(privOptions) == true {
+            if (response == NSApplication.ModalResponse.cancel) {
+                if AXIsProcessTrustedWithOptions(privOptions as CFDictionary) == true {
                     self.startup()
                 } else {
                     NSApp.terminate(self)

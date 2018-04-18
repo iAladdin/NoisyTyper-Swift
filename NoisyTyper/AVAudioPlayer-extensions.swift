@@ -7,10 +7,11 @@
 //
 
 import AVFoundation
+import AppKit
 
 extension AppDelegate:AVAudioPlayerDelegate{
 
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         autoreleasepool {
             player.stop()
             var indexOfPlayer = LONG_MAX as Int
@@ -19,7 +20,7 @@ extension AppDelegate:AVAudioPlayerDelegate{
             for item in tempArray{
                 if item == player {
                     indexOfPlayer = index
-                    self.functionsKeyTempPool.removeAtIndex(indexOfPlayer)
+                    self.functionsKeyTempPool.remove(at: indexOfPlayer)
                 }
                 index = index + 1
             }
@@ -34,7 +35,7 @@ extension AVAudioPlayer{
         if appDelegate.isMuted {
             return
         }else{
-            if self.playing{
+            if self.isPlaying{
                 if self.self.duration > 1.0 {
                     if self.currentTime  > 0.1 {
                         self.currentTime = 0
@@ -48,7 +49,7 @@ extension AVAudioPlayer{
                                 return
                             }
                             do {
-                                tempPlayer = try AVAudioPlayer(contentsOfURL: url)
+                                tempPlayer = try AVAudioPlayer(contentsOf: url)
                                 appDelegate.functionsKeyTempPool.append(tempPlayer)
                                 tempPlayer?.pan = self.pan
                                 tempPlayer?.volume = self.volume

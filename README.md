@@ -15,6 +15,15 @@ Enjõy!
 click to [download](https://github.com/iAladdin/NoisyTyper-Swift/archive/release/version-0.1.zip).
 
 # How to install
+
 1. [Allow applications downloaded from AnyWhere](https://support.apple.com/en-us/HT202491)
 2. [Allow NoisyTyper control your computer using accessibility feature](http://support.apple.com/kb/HT6026)
 3. Done.There is a menu item in your system status bar.
+
+# Contributors
+
+<a href="https://github.com/iAladdin/NoisyTyper-Swift/graphs/contributors">
+  <img src="https://contributors-img.firebaseapp.com/image?repo=iAladdin/NoisyTyper-Swift" />
+</a>
+
+Made with [contributors-img](https://contributors-img.firebaseapp.com).

@@ -20,8 +20,6 @@ click to [download](https://github.com/iAladdin/NoisyTyper-Swift/archive/release
 2. [Allow NoisyTyper control your computer using accessibility feature](http://support.apple.com/kb/HT6026)
 3. Done.There is a menu item in your system status bar.
 
-Special thanks for @shokuninstudio, the artwork and iOS sound theme credits belongs to @shokuninstudio.
-
 # Contributors
 
 <a href="https://github.com/iAladdin/NoisyTyper-Swift/graphs/contributors">
@@ -29,3 +27,5 @@ Special thanks for @shokuninstudio, the artwork and iOS sound theme credits belo
 </a>
 
 Made with [contributors-img](https://contributors-img.firebaseapp.com).
+
+Special thanks @shokuninstudio for the artwork and iOS sound theme, credits belongs to @shokuninstudio.

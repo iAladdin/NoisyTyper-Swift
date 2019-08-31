@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78708D7F231AFFF900CAB309 /* KeypressSpacebar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 78708D7B231AFFF800CAB309 /* KeypressSpacebar.mp3 */; };
+		78708D80231AFFF900CAB309 /* KeypressStandard.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 78708D7C231AFFF800CAB309 /* KeypressStandard.mp3 */; };
+		78708D81231AFFF900CAB309 /* KeypressDelete.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 78708D7D231AFFF800CAB309 /* KeypressDelete.mp3 */; };
+		78708D82231AFFF900CAB309 /* KeypressReturn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 78708D7E231AFFF900CAB309 /* KeypressReturn.mp3 */; };
 		83085C7E1C157A9400BFD82D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83085C7D1C157A9400BFD82D /* AppDelegate.swift */; };
 		83085C821C157A9400BFD82D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83085C811C157A9400BFD82D /* Assets.xcassets */; };
 		83085C9C1C157D1200BFD82D /* backspace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C8C1C157D1200BFD82D /* backspace.mp3 */; };
@@ -31,6 +35,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78708D7B231AFFF800CAB309 /* KeypressSpacebar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = KeypressSpacebar.mp3; sourceTree = "<group>"; };
+		78708D7C231AFFF800CAB309 /* KeypressStandard.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = KeypressStandard.mp3; sourceTree = "<group>"; };
+		78708D7D231AFFF800CAB309 /* KeypressDelete.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = KeypressDelete.mp3; sourceTree = "<group>"; };
+		78708D7E231AFFF900CAB309 /* KeypressReturn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = KeypressReturn.mp3; sourceTree = "<group>"; };
 		83085C7A1C157A9400BFD82D /* NoisyTyper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoisyTyper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83085C7D1C157A9400BFD82D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83085C811C157A9400BFD82D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +108,10 @@
 		83085CAC1C157D2E00BFD82D /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				78708D7D231AFFF800CAB309 /* KeypressDelete.mp3 */,
+				78708D7E231AFFF900CAB309 /* KeypressReturn.mp3 */,
+				78708D7B231AFFF800CAB309 /* KeypressSpacebar.mp3 */,
+				78708D7C231AFFF800CAB309 /* KeypressStandard.mp3 */,
 				83085C8C1C157D1200BFD82D /* backspace.mp3 */,
 				83085C8D1C157D1200BFD82D /* key-01.mp3 */,
 				83085C8E1C157D1200BFD82D /* key-02.mp3 */,
@@ -153,6 +165,7 @@
 				TargetAttributes = {
 					83085C791C157A9400BFD82D = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 83A66Y7RYD;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -162,6 +175,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -190,13 +204,17 @@
 				83085CA41C157D1200BFD82D /* key-new-04.mp3 in Resources */,
 				83085CAA1C157D1200BFD82D /* space-new.mp3 in Resources */,
 				83085CA51C157D1200BFD82D /* key-new-05.mp3 in Resources */,
+				78708D82231AFFF900CAB309 /* KeypressReturn.mp3 in Resources */,
 				83085CA01C157D1200BFD82D /* key-04.mp3 in Resources */,
 				83085C821C157A9400BFD82D /* Assets.xcassets in Resources */,
 				83085CA71C157D1200BFD82D /* return.mp3 in Resources */,
+				78708D80231AFFF900CAB309 /* KeypressStandard.mp3 in Resources */,
+				78708D81231AFFF900CAB309 /* KeypressDelete.mp3 in Resources */,
 				83085C9C1C157D1200BFD82D /* backspace.mp3 in Resources */,
 				83085CA61C157D1200BFD82D /* return-new.mp3 in Resources */,
 				83085CA91C157D1200BFD82D /* scrollUp.mp3 in Resources */,
 				83085C9D1C157D1200BFD82D /* key-01.mp3 in Resources */,
+				78708D7F231AFFF900CAB309 /* KeypressSpacebar.mp3 in Resources */,
 				836E78CB1C159EBC00BE4FF0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,7 +349,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 83A66Y7RYD;
 				INFOPLIST_FILE = NoisyTyper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -349,7 +367,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 83A66Y7RYD;
 				INFOPLIST_FILE = NoisyTyper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;

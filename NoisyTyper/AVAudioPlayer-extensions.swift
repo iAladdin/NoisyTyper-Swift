@@ -32,7 +32,7 @@ extension AppDelegate:AVAudioPlayerDelegate{
 extension AVAudioPlayer{
     public func playNoisy(){
         let appDelegate = NSApp.delegate as! AppDelegate
-        if appDelegate.isMuted {
+        if appDelegate.volumeLevel == 0.0 {
             return
         }else{
             if self.isPlaying{

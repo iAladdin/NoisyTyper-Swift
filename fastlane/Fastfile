@@ -20,7 +20,6 @@ platform :mac do
   lane :build do
     build_app(
       scheme: "NoisyTyper",
-      archive: true,
       archive_path: "./build/NoisyTyper.xcarchive"
       )
     automatic_code_signing(

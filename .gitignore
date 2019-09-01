@@ -33,3 +33,5 @@ DerivedData
 Carthage/Build
 .DS_Store
 NoisyTyper.xcodeproj/project.xcworkspace/xcshareddata
+/NoisyTyper.app
+/NoisyTyper.app.dSYM.zip

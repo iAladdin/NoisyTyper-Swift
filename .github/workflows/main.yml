@@ -16,7 +16,8 @@ jobs:
         run: |
           sudo gem install fastlane -NV
       - name: XCode build
-        run: xcodebuild -configuration Release -scheme NoisyTyper -derivedDataPath build
+        run: |
+          fastlane mac build
       - name: Create Downloadable zip
         run: |
           cp -r build/Build/Products/Release/NoisyTyper.app ./NoisyTyper.app

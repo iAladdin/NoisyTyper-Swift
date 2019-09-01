@@ -11,13 +11,13 @@ jobs:
     - uses: actions/checkout@v1
     - name: Test Env
       run: |
-      pwd
-      ls
+        pwd
+        ls
     - name: XCode build
       run: xcodebuild -configuration Release -scheme NoisyTyper -derivedDataPath build
     - name: Create Downloadable zip
       run: |
-      cp -r build/Build/Products/Release/NoisyTyper.app ./NoisyTyper.app
-      zip -r NoisyTyper.zip ./NoisyTyper.app
-      rm -rf ./NoisyTyper.app
+        cp -r build/Build/Products/Release/NoisyTyper.app ./NoisyTyper.app
+        zip -r NoisyTyper.zip ./NoisyTyper.app
+        rm -rf ./NoisyTyper.app
 

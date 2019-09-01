@@ -9,11 +9,15 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
+    - name: Test Env
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
-    - name: test xcode env
-      run: xcodebuild -list -workspace 
+      pwd
+      ls
+    - name: XCode build
+      run: xcodebuild -configuration Release -scheme NoisyTyper -derivedDataPath build
+    - name: Create Downloadable zip
+      run: |
+      cp -r build/Build/Products/Release/NoisyTyper.app ./NoisyTyper.app
+      zip -r NoisyTyper.zip ./NoisyTyper.app
+      rm -rf ./NoisyTyper.app
+

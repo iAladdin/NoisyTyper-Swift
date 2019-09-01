@@ -4,20 +4,21 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: macOS-latest
-    
-    steps:
-    - uses: actions/checkout@v1
-    - name: Test Env
-      run: |
-        pwd
-        ls
-    - name: XCode build
-      run: xcodebuild -configuration Release -scheme NoisyTyper -derivedDataPath build
-    - name: Create Downloadable zip
-      run: |
-        cp -r build/Build/Products/Release/NoisyTyper.app ./NoisyTyper.app
-        zip -r NoisyTyper.zip ./NoisyTyper.app
-        rm -rf ./NoisyTyper.app
 
+    steps:
+      - uses: actions/checkout@v1
+      - name: Test Env
+        run: |
+          pwd
+          ls
+      - name: Setup Env
+        run: |
+          sudo gem install fastlane -NV
+      - name: XCode build
+        run: xcodebuild -configuration Release -scheme NoisyTyper -derivedDataPath build
+      - name: Create Downloadable zip
+        run: |
+          cp -r build/Build/Products/Release/NoisyTyper.app ./NoisyTyper.app
+          zip -r NoisyTyper.zip ./NoisyTyper.app
+          rm -rf ./NoisyTyper.app

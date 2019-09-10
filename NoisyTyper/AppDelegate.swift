@@ -63,7 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(themeItem1)
         menu.addItem(themeItem2)
         menu.addItem(themeItem3)
-        
+    
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title:"❌", action: #selector(exit), keyEquivalent:""))
 
@@ -78,6 +78,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func startup(){
+        
+        if let cacheTheme = UserDefaults.standard.string(forKey: "NoisyTyperUserSettings-Theme"){
+            self.currentTheme = cacheTheme
+        }
+        
         self.loadVolume()
         self.loadSounds()
         
@@ -91,9 +96,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func loadVolume(){
         self.volumeLevel = UserDefaults.standard.float(forKey: "NoisyTyperUserSettings-VolumeLevel")
-        if self.volumeLevel == 0 {
-            self.volumeLevel = 1.0
-        }
     }
     
     func loadSound(_ name:String)->AVAudioPlayer? {
@@ -117,11 +119,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         soundKey.removeAll()
     }
     func loadSounds(){
-        if let cacheTheme = UserDefaults.standard.string(forKey: "NoisyTyperUserSettings-Theme"){
-            self.currentTheme = cacheTheme
-        }
-        
-        
         clearSounds()
         switch self.currentTheme {
         case "Typer I":
@@ -178,6 +175,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func keyWasPressedFunction(event:NSEvent){
+        if(self.volumeLevel == 0){
+            return
+        }
+        
         let key = event.keyCode
 
         if( key == 125 ){
@@ -256,7 +257,7 @@ extension AppDelegate{
         soundReturn?.volume = Float.random(self.volumeLevel - 0.4, self.volumeLevel)
         soundReturn?.playNoisy()
     }
-    
+
     @objc func configVolume(slider:NSSlider){
         if volumeLevel != slider.floatValue {
             volumeLevel = slider.floatValue
@@ -267,7 +268,7 @@ extension AppDelegate{
             self.playTestSound()
         }
     }
-
+    
     func updateVolume(){
         UserDefaults.standard.set(volumeLevel, forKey: "NoisyTyperUserSettings-VolumeLevel")
         UserDefaults.standard.synchronize()
@@ -277,10 +278,13 @@ extension AppDelegate{
         themeItem1.state = .off
         themeItem2.state = .off
         themeItem3.state = .off
-        self.currentTheme = target.title
+        if(self.currentTheme != target.title){
+            self.currentTheme = target.title
+            loadSounds()
+        }else{
+            self.playTestSound()
+        }
         updateTheme()
-        loadSounds()
-        self.playTestSound()
     }
     
     func updateTheme(){
@@ -323,6 +327,5 @@ extension AppDelegate{
         return accessEnabled == true
     }
 }
-
 
 

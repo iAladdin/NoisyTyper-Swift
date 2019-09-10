@@ -36,7 +36,7 @@ extension AVAudioPlayer{
             return
         }else{
             if self.isPlaying{
-                if self.self.duration > 1.0 {
+                if self.duration > 1.0 {
                     if self.currentTime  > 0.1 {
                         self.currentTime = 0
                         self.play()

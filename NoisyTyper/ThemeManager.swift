@@ -14,7 +14,7 @@ class ThemeMananger {
     var themes:[[String:AnyObject]]! = nil
     
     func loadThemes(){
-        var tInfo:[String:AnyObject]? = nil
+        var tInfo:[String:AnyObject]?
         if let path = Bundle.main.path(forResource: "theme", ofType: "plist", inDirectory: "SFX") {
         
             tInfo = NSDictionary(contentsOfFile: path) as? [String : AnyObject]

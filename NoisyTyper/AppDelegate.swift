@@ -19,13 +19,13 @@ let kSoundVolume = "ConfigSoundVolumeKey"
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    var configWC:NTWindowController? = nil
+    var configWC:NTWindowController?
 
-    var scrollDn:AVAudioPlayer? = nil
-    var scrollUp:AVAudioPlayer? = nil
-    var backspace:AVAudioPlayer? = nil
-    var soundSpace:AVAudioPlayer? = nil
-    var soundReturn:AVAudioPlayer? = nil
+    var scrollDn:AVAudioPlayer?
+    var scrollUp:AVAudioPlayer?
+    var backspace:AVAudioPlayer?
+    var soundSpace:AVAudioPlayer?
+    var soundReturn:AVAudioPlayer?
 
     var currentThemeID:Int = 0
     
@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var soundKey:[AVAudioPlayer?] = []
 
-    var menuItem:NSStatusItem? = nil
+    var menuItem:NSStatusItem?
     
     var volumeLevel:Float = 1.0
     
@@ -166,7 +166,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     func findFreeKeyplayer()->AVAudioPlayer?{
-        var result: AVAudioPlayer? = nil
+        var result: AVAudioPlayer?
         repeat {
             let which = Int.random(0, soundKey.count - 1)
             result = soundKey[which]
@@ -203,7 +203,7 @@ extension AppDelegate{
                 for themeID in 0..<self.themeItems.count {
                     if let buttonView = storeWindow.contentView?.viewWithTag(themeID){
                         let button:NSButton = buttonView as! NSButton
-                        let buttonTitleColor:NSColor = self.currentThemeID == themeID ? NSColor.white : NSColor.disabledControlTextColor;
+                        let buttonTitleColor:NSColor = self.currentThemeID == themeID ? NSColor.white : NSColor.disabledControlTextColor
                         if let mutableAttributedTitle = button.attributedTitle.mutableCopy() as? NSMutableAttributedString {
                             mutableAttributedTitle.addAttribute(.foregroundColor, value: buttonTitleColor, range: NSRange(location: 0, length: mutableAttributedTitle.length))
                             button.attributedTitle = mutableAttributedTitle

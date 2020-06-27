@@ -1,9 +1,11 @@
+# [NoisyTyper-Swift](http://ialaddin.github.io/NoisyTyper-Swift/)
+[![CodeFactor](https://www.codefactor.io/repository/github/ialaddin/noisytyper-swift/badge)](https://www.codefactor.io/repository/github/ialaddin/noisytyper-swift)
+
 <p align="center" >
   <img src="https://raw.githubusercontent.com/iAladdin/NoisyTyper-Swift/master/NoisyTyper/Assets.xcassets/AppIcon.appiconset/256.png" alt="NoisyTyper" title="NoisyTyper">
   <img src="https://user-images.githubusercontent.com/209606/85928551-641c9000-b8e0-11ea-8fcb-a7d1764055d4.png" alt="Typewriter Gallery" title="Typewriter Gallery">
 </p>
 
-# [NoisyTyper-Swift](http://ialaddin.github.io/NoisyTyper-Swift/)
 Swift Version : Create typewriter noises when typing (by Theo Watson) http://fffff.at/noisy-typer-a-typewriter-for-your-laptop/
 
 More friendly and more directly.

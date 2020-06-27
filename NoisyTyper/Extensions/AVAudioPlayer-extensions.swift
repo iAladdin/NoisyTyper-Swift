@@ -44,7 +44,7 @@ extension AVAudioPlayer{
                 }else{
                     if let url = self.url{
                         autoreleasepool {
-                            var tempPlayer:AVAudioPlayer? = nil
+                            var tempPlayer:AVAudioPlayer?
                             if appDelegate.functionsKeyTempPool.count > 30{
                                 return
                             }

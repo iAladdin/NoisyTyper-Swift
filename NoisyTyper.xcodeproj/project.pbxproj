@@ -7,61 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		78708D7F231AFFF900CAB309 /* KeypressSpacebar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 78708D7B231AFFF800CAB309 /* KeypressSpacebar.mp3 */; };
-		78708D80231AFFF900CAB309 /* KeypressStandard.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 78708D7C231AFFF800CAB309 /* KeypressStandard.mp3 */; };
-		78708D81231AFFF900CAB309 /* KeypressDelete.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 78708D7D231AFFF800CAB309 /* KeypressDelete.mp3 */; };
-		78708D82231AFFF900CAB309 /* KeypressReturn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 78708D7E231AFFF900CAB309 /* KeypressReturn.mp3 */; };
+		785BAB75232AC27200E7426F /* NTWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785BAB74232AC27200E7426F /* NTWindowController.swift */; };
+		785BAB7B232AEEF500E7426F /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785BAB7A232AEEF500E7426F /* UIHelper.swift */; };
+		785BAB7D232D7E4800E7426F /* NTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785BAB7C232D7E4800E7426F /* NTViewController.swift */; };
+		785BAB82233227BB00E7426F /* SFX in Resources */ = {isa = PBXBuildFile; fileRef = 785BAB81233227BB00E7426F /* SFX */; };
+		785BAB8423322C5300E7426F /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785BAB8323322C5300E7426F /* ThemeManager.swift */; };
+		78E200D723337A4000FE43C5 /* AppMenuUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E200D623337A4000FE43C5 /* AppMenuUI.swift */; };
 		83085C7E1C157A9400BFD82D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83085C7D1C157A9400BFD82D /* AppDelegate.swift */; };
 		83085C821C157A9400BFD82D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83085C811C157A9400BFD82D /* Assets.xcassets */; };
-		83085C9C1C157D1200BFD82D /* backspace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C8C1C157D1200BFD82D /* backspace.mp3 */; };
-		83085C9D1C157D1200BFD82D /* key-01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C8D1C157D1200BFD82D /* key-01.mp3 */; };
-		83085C9E1C157D1200BFD82D /* key-02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C8E1C157D1200BFD82D /* key-02.mp3 */; };
-		83085C9F1C157D1200BFD82D /* key-03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C8F1C157D1200BFD82D /* key-03.mp3 */; };
-		83085CA01C157D1200BFD82D /* key-04.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C901C157D1200BFD82D /* key-04.mp3 */; };
-		83085CA11C157D1200BFD82D /* key-new-01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C911C157D1200BFD82D /* key-new-01.mp3 */; };
-		83085CA21C157D1200BFD82D /* key-new-02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C921C157D1200BFD82D /* key-new-02.mp3 */; };
-		83085CA31C157D1200BFD82D /* key-new-03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C931C157D1200BFD82D /* key-new-03.mp3 */; };
-		83085CA41C157D1200BFD82D /* key-new-04.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C941C157D1200BFD82D /* key-new-04.mp3 */; };
-		83085CA51C157D1200BFD82D /* key-new-05.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C951C157D1200BFD82D /* key-new-05.mp3 */; };
-		83085CA61C157D1200BFD82D /* return-new.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C961C157D1200BFD82D /* return-new.mp3 */; };
-		83085CA71C157D1200BFD82D /* return.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C971C157D1200BFD82D /* return.mp3 */; };
-		83085CA81C157D1200BFD82D /* scrollDown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C981C157D1200BFD82D /* scrollDown.mp3 */; };
-		83085CA91C157D1200BFD82D /* scrollUp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C991C157D1200BFD82D /* scrollUp.mp3 */; };
-		83085CAA1C157D1200BFD82D /* space-new.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C9A1C157D1200BFD82D /* space-new.mp3 */; };
-		83085CAB1C157D1200BFD82D /* space.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83085C9B1C157D1200BFD82D /* space.mp3 */; };
 		836E78CB1C159EBC00BE4FF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 836E78C91C159EBC00BE4FF0 /* Main.storyboard */; };
 		836E78D21C16B6C400BE4FF0 /* AVAudioPlayer-extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836E78D11C16B6C400BE4FF0 /* AVAudioPlayer-extensions.swift */; };
 		836E78D41C16B7A100BE4FF0 /* Number-extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836E78D31C16B7A100BE4FF0 /* Number-extensions.swift */; };
+		F08EC016BB9B712C62E0E1F6 /* Pods_NoisyTyper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B9AAB97BF1E3D06120AEB42 /* Pods_NoisyTyper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		78708D7B231AFFF800CAB309 /* KeypressSpacebar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = KeypressSpacebar.mp3; sourceTree = "<group>"; };
-		78708D7C231AFFF800CAB309 /* KeypressStandard.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = KeypressStandard.mp3; sourceTree = "<group>"; };
-		78708D7D231AFFF800CAB309 /* KeypressDelete.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = KeypressDelete.mp3; sourceTree = "<group>"; };
-		78708D7E231AFFF900CAB309 /* KeypressReturn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = KeypressReturn.mp3; sourceTree = "<group>"; };
+		0B9AAB97BF1E3D06120AEB42 /* Pods_NoisyTyper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoisyTyper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		785BAB74232AC27200E7426F /* NTWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NTWindowController.swift; sourceTree = "<group>"; };
+		785BAB7A232AEEF500E7426F /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		785BAB7C232D7E4800E7426F /* NTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NTViewController.swift; sourceTree = "<group>"; };
+		785BAB81233227BB00E7426F /* SFX */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SFX; sourceTree = "<group>"; };
+		785BAB8323322C5300E7426F /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		78A4E27A233DD5E200949189 /* NoisyTyper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NoisyTyper.entitlements; sourceTree = "<group>"; };
+		78E200D623337A4000FE43C5 /* AppMenuUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMenuUI.swift; sourceTree = "<group>"; };
 		83085C7A1C157A9400BFD82D /* NoisyTyper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoisyTyper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83085C7D1C157A9400BFD82D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83085C811C157A9400BFD82D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83085C861C157A9500BFD82D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83085C8C1C157D1200BFD82D /* backspace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backspace.mp3; sourceTree = "<group>"; };
-		83085C8D1C157D1200BFD82D /* key-01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "key-01.mp3"; sourceTree = "<group>"; };
-		83085C8E1C157D1200BFD82D /* key-02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "key-02.mp3"; sourceTree = "<group>"; };
-		83085C8F1C157D1200BFD82D /* key-03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "key-03.mp3"; sourceTree = "<group>"; };
-		83085C901C157D1200BFD82D /* key-04.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "key-04.mp3"; sourceTree = "<group>"; };
-		83085C911C157D1200BFD82D /* key-new-01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "key-new-01.mp3"; sourceTree = "<group>"; };
-		83085C921C157D1200BFD82D /* key-new-02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "key-new-02.mp3"; sourceTree = "<group>"; };
-		83085C931C157D1200BFD82D /* key-new-03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "key-new-03.mp3"; sourceTree = "<group>"; };
-		83085C941C157D1200BFD82D /* key-new-04.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "key-new-04.mp3"; sourceTree = "<group>"; };
-		83085C951C157D1200BFD82D /* key-new-05.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "key-new-05.mp3"; sourceTree = "<group>"; };
-		83085C961C157D1200BFD82D /* return-new.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "return-new.mp3"; sourceTree = "<group>"; };
-		83085C971C157D1200BFD82D /* return.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = return.mp3; sourceTree = "<group>"; };
-		83085C981C157D1200BFD82D /* scrollDown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scrollDown.mp3; sourceTree = "<group>"; };
-		83085C991C157D1200BFD82D /* scrollUp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scrollUp.mp3; sourceTree = "<group>"; };
-		83085C9A1C157D1200BFD82D /* space-new.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "space-new.mp3"; sourceTree = "<group>"; };
-		83085C9B1C157D1200BFD82D /* space.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = space.mp3; sourceTree = "<group>"; };
 		836E78CA1C159EBC00BE4FF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		836E78D11C16B6C400BE4FF0 /* AVAudioPlayer-extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVAudioPlayer-extensions.swift"; sourceTree = "<group>"; };
 		836E78D31C16B7A100BE4FF0 /* Number-extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number-extensions.swift"; sourceTree = "<group>"; };
+		AA53D4B7E6A74AA64439704F /* Pods-NoisyTyper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoisyTyper.release.xcconfig"; path = "Target Support Files/Pods-NoisyTyper/Pods-NoisyTyper.release.xcconfig"; sourceTree = "<group>"; };
+		F97F3D5190BACA26C4DC76BE /* Pods-NoisyTyper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoisyTyper.debug.xcconfig"; path = "Target Support Files/Pods-NoisyTyper/Pods-NoisyTyper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,17 +46,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F08EC016BB9B712C62E0E1F6 /* Pods_NoisyTyper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78E200D8233380A900FE43C5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				785BAB7A232AEEF500E7426F /* UIHelper.swift */,
+				785BAB7C232D7E4800E7426F /* NTViewController.swift */,
+				78E200D623337A4000FE43C5 /* AppMenuUI.swift */,
+				785BAB74232AC27200E7426F /* NTWindowController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		78E200D9233380B700FE43C5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				836E78D31C16B7A100BE4FF0 /* Number-extensions.swift */,
+				836E78D11C16B6C400BE4FF0 /* AVAudioPlayer-extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		83085C711C157A9400BFD82D = {
 			isa = PBXGroup;
 			children = (
 				83085C7C1C157A9400BFD82D /* NoisyTyper */,
 				83085C7B1C157A9400BFD82D /* Products */,
+				96B554DECDAC4A5E241A5FA2 /* Pods */,
+				DC2A237F6114E1AE0CEFCC13 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,42 +94,34 @@
 		83085C7C1C157A9400BFD82D /* NoisyTyper */ = {
 			isa = PBXGroup;
 			children = (
-				836E78C91C159EBC00BE4FF0 /* Main.storyboard */,
+				78A4E27A233DD5E200949189 /* NoisyTyper.entitlements */,
 				83085C7D1C157A9400BFD82D /* AppDelegate.swift */,
-				836E78D31C16B7A100BE4FF0 /* Number-extensions.swift */,
-				836E78D11C16B6C400BE4FF0 /* AVAudioPlayer-extensions.swift */,
-				83085CAC1C157D2E00BFD82D /* Sounds */,
+				785BAB8323322C5300E7426F /* ThemeManager.swift */,
+				78E200D9233380B700FE43C5 /* Extensions */,
+				78E200D8233380A900FE43C5 /* UI */,
+				785BAB81233227BB00E7426F /* SFX */,
 				83085C811C157A9400BFD82D /* Assets.xcassets */,
+				836E78C91C159EBC00BE4FF0 /* Main.storyboard */,
 				83085C861C157A9500BFD82D /* Info.plist */,
 			);
 			path = NoisyTyper;
 			sourceTree = "<group>";
 		};
-		83085CAC1C157D2E00BFD82D /* Sounds */ = {
+		96B554DECDAC4A5E241A5FA2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				78708D7D231AFFF800CAB309 /* KeypressDelete.mp3 */,
-				78708D7E231AFFF900CAB309 /* KeypressReturn.mp3 */,
-				78708D7B231AFFF800CAB309 /* KeypressSpacebar.mp3 */,
-				78708D7C231AFFF800CAB309 /* KeypressStandard.mp3 */,
-				83085C8C1C157D1200BFD82D /* backspace.mp3 */,
-				83085C8D1C157D1200BFD82D /* key-01.mp3 */,
-				83085C8E1C157D1200BFD82D /* key-02.mp3 */,
-				83085C8F1C157D1200BFD82D /* key-03.mp3 */,
-				83085C901C157D1200BFD82D /* key-04.mp3 */,
-				83085C911C157D1200BFD82D /* key-new-01.mp3 */,
-				83085C921C157D1200BFD82D /* key-new-02.mp3 */,
-				83085C931C157D1200BFD82D /* key-new-03.mp3 */,
-				83085C941C157D1200BFD82D /* key-new-04.mp3 */,
-				83085C951C157D1200BFD82D /* key-new-05.mp3 */,
-				83085C961C157D1200BFD82D /* return-new.mp3 */,
-				83085C971C157D1200BFD82D /* return.mp3 */,
-				83085C981C157D1200BFD82D /* scrollDown.mp3 */,
-				83085C991C157D1200BFD82D /* scrollUp.mp3 */,
-				83085C9A1C157D1200BFD82D /* space-new.mp3 */,
-				83085C9B1C157D1200BFD82D /* space.mp3 */,
+				F97F3D5190BACA26C4DC76BE /* Pods-NoisyTyper.debug.xcconfig */,
+				AA53D4B7E6A74AA64439704F /* Pods-NoisyTyper.release.xcconfig */,
 			);
-			name = Sounds;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DC2A237F6114E1AE0CEFCC13 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0B9AAB97BF1E3D06120AEB42 /* Pods_NoisyTyper.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,10 +131,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 83085C891C157A9500BFD82D /* Build configuration list for PBXNativeTarget "NoisyTyper" */;
 			buildPhases = (
+				FF1845ABA3A5484133AEDA75 /* [CP] Check Pods Manifest.lock */,
 				83085C761C157A9400BFD82D /* Sources */,
 				83085C771C157A9400BFD82D /* Frameworks */,
 				83085C781C157A9400BFD82D /* Resources */,
 				836E78CF1C15EF7300BE4FF0 /* ShellScript */,
+				74B593B1B156723F406D5D67 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,12 +154,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = Aladdin;
 				TargetAttributes = {
 					83085C791C157A9400BFD82D = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = 83A66Y7RYD;
+						LastSwiftMigration = 1200;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -194,27 +189,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83085C9E1C157D1200BFD82D /* key-02.mp3 in Resources */,
-				83085CAB1C157D1200BFD82D /* space.mp3 in Resources */,
-				83085CA81C157D1200BFD82D /* scrollDown.mp3 in Resources */,
-				83085C9F1C157D1200BFD82D /* key-03.mp3 in Resources */,
-				83085CA31C157D1200BFD82D /* key-new-03.mp3 in Resources */,
-				83085CA11C157D1200BFD82D /* key-new-01.mp3 in Resources */,
-				83085CA21C157D1200BFD82D /* key-new-02.mp3 in Resources */,
-				83085CA41C157D1200BFD82D /* key-new-04.mp3 in Resources */,
-				83085CAA1C157D1200BFD82D /* space-new.mp3 in Resources */,
-				83085CA51C157D1200BFD82D /* key-new-05.mp3 in Resources */,
-				78708D82231AFFF900CAB309 /* KeypressReturn.mp3 in Resources */,
-				83085CA01C157D1200BFD82D /* key-04.mp3 in Resources */,
+				785BAB82233227BB00E7426F /* SFX in Resources */,
 				83085C821C157A9400BFD82D /* Assets.xcassets in Resources */,
-				83085CA71C157D1200BFD82D /* return.mp3 in Resources */,
-				78708D80231AFFF900CAB309 /* KeypressStandard.mp3 in Resources */,
-				78708D81231AFFF900CAB309 /* KeypressDelete.mp3 in Resources */,
-				83085C9C1C157D1200BFD82D /* backspace.mp3 in Resources */,
-				83085CA61C157D1200BFD82D /* return-new.mp3 in Resources */,
-				83085CA91C157D1200BFD82D /* scrollUp.mp3 in Resources */,
-				83085C9D1C157D1200BFD82D /* key-01.mp3 in Resources */,
-				78708D7F231AFFF900CAB309 /* KeypressSpacebar.mp3 in Resources */,
 				836E78CB1C159EBC00BE4FF0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +198,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		74B593B1B156723F406D5D67 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NoisyTyper/Pods-NoisyTyper-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NoisyTyper/Pods-NoisyTyper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		836E78CF1C15EF7300BE4FF0 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -233,7 +227,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+		FF1845ABA3A5484133AEDA75 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NoisyTyper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -244,7 +260,12 @@
 			files = (
 				836E78D21C16B6C400BE4FF0 /* AVAudioPlayer-extensions.swift in Sources */,
 				836E78D41C16B7A100BE4FF0 /* Number-extensions.swift in Sources */,
+				785BAB7D232D7E4800E7426F /* NTViewController.swift in Sources */,
 				83085C7E1C157A9400BFD82D /* AppDelegate.swift in Sources */,
+				785BAB7B232AEEF500E7426F /* UIHelper.swift in Sources */,
+				785BAB75232AC27200E7426F /* NTWindowController.swift in Sources */,
+				78E200D723337A4000FE43C5 /* AppMenuUI.swift in Sources */,
+				785BAB8423322C5300E7426F /* ThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,17 +287,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -310,17 +343,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -339,42 +384,53 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
 		};
 		83085C8A1C157A9500BFD82D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F97F3D5190BACA26C4DC76BE /* Pods-NoisyTyper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NoisyTyper/NoisyTyper.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 320;
 				DEVELOPMENT_TEAM = 83A66Y7RYD;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = NoisyTyper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = me.iAladdin.NoisyTyper;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MARKETING_VERSION = 0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = me.ialaddin.noisytyper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		83085C8B1C157A9500BFD82D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA53D4B7E6A74AA64439704F /* Pods-NoisyTyper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NoisyTyper/NoisyTyper.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 320;
 				DEVELOPMENT_TEAM = 83A66Y7RYD;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = NoisyTyper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = me.iAladdin.NoisyTyper;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MARKETING_VERSION = 0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = me.ialaddin.noisytyper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

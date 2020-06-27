@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C48a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17132"/>
+        <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -645,7 +647,163 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="NoisyTyper" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="-64" y="-290"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="hLh-mJ-sz9">
+            <objects>
+                <windowController storyboardIdentifier="Store" showSeguePresentationStyle="single" id="cJH-GX-yCU" customClass="NTWindowController" customModule="NoisyTyper" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="SFX Store" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="faC-3n-NIS">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
+                        <rect key="contentRect" x="631" y="442" width="600" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+                        <value key="minSize" type="size" width="600" height="270"/>
+                        <connections>
+                            <outlet property="delegate" destination="cJH-GX-yCU" id="LfI-qf-FVW"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="LI0-fy-me5" kind="relationship" relationship="window.shadowedContentViewController" id="ir5-Sw-JZ9"/>
+                    </connections>
+                </windowController>
+                <customObject id="gmh-0i-sSA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-54" y="-35"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GBC-sY-ydt">
+            <objects>
+                <viewController id="LI0-fy-me5" customClass="NTViewController" customModule="NoisyTyper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="OeR-V6-weF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="hRo-lQ-MUZ">
+                                <rect key="frame" x="20" y="20" width="560" height="178"/>
+                                <clipView key="contentView" autoresizesSubviews="NO" drawsBackground="NO" id="U9W-5F-0D3">
+                                    <rect key="frame" x="1" y="1" width="558" height="176"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view id="e22-vo-a5H">
+                                            <rect key="frame" x="0.0" y="0.0" width="937" height="161"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <button tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="L4S-h5-HGI">
+                                                    <rect key="frame" x="210" y="16" width="130" height="130"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="130" id="A3H-IT-nOf"/>
+                                                        <constraint firstAttribute="width" constant="130" id="qP6-tP-TUB"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="square" title="Typer II" bezelStyle="shadowlessSquare" image="Typer II" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="TpQ-W0-4Aq">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system" size="12"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="NqN-8q-bPR"/>
+                                                    </connections>
+                                                </button>
+                                                <button autoresizesSubviews="NO" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="jyi-YZ-43k" userLabel="smith">
+                                                    <rect key="frame" x="380" y="16" width="130" height="130"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="130" id="XZf-yh-twE"/>
+                                                        <constraint firstAttribute="width" constant="130" id="ejW-R1-xS6"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="square" title="Smith Corona" bezelStyle="shadowlessSquare" image="smith-cornoa" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="cNV-yn-6kK">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system" size="12"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="mAF-dt-0vm"/>
+                                                    </connections>
+                                                </button>
+                                                <button autoresizesSubviews="NO" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="8Zj-Ac-vfv" userLabel="olympia">
+                                                    <rect key="frame" x="550" y="16" width="130" height="130"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="130" id="UlH-N6-adj"/>
+                                                        <constraint firstAttribute="width" constant="130" id="rOh-vF-XAc"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="square" title="Olympia" bezelStyle="shadowlessSquare" image="olympia" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="N0D-42-zwO">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system" size="12"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="aMD-FL-qCI"/>
+                                                    </connections>
+                                                </button>
+                                                <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H28-ui-Ifr">
+                                                    <rect key="frame" x="747" y="100" width="130" height="130"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="130" id="YFP-H8-kfv"/>
+                                                        <constraint firstAttribute="height" constant="130" id="zib-nv-yT4"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="square" title="iPhone" bezelStyle="shadowlessSquare" image="iPhone" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="N4l-Uv-Fqw">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system" size="12"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="x6w-oa-cay"/>
+                                                    </connections>
+                                                </button>
+                                                <button tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="ljf-Dp-5Qs">
+                                                    <rect key="frame" x="40" y="16" width="130" height="130"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="130" id="9m0-qT-7hg"/>
+                                                        <constraint firstAttribute="height" constant="130" id="sbS-S2-UY1"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="square" title="Typer I" bezelStyle="shadowlessSquare" image="Typer I" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="VxF-xe-F8z">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system" size="12"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="r8j-Tt-MDq"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jyi-YZ-43k" firstAttribute="centerY" secondItem="L4S-h5-HGI" secondAttribute="centerY" id="4II-d4-vOF"/>
+                                                <constraint firstItem="H28-ui-Ifr" firstAttribute="centerY" secondItem="8Zj-Ac-vfv" secondAttribute="centerY" id="Ci4-hA-Ycf"/>
+                                                <constraint firstItem="ljf-Dp-5Qs" firstAttribute="centerY" secondItem="e22-vo-a5H" secondAttribute="centerY" id="CjK-iA-GFp"/>
+                                                <constraint firstItem="H28-ui-Ifr" firstAttribute="leading" secondItem="8Zj-Ac-vfv" secondAttribute="trailing" constant="40" id="FmK-Uc-OMH"/>
+                                                <constraint firstItem="8Zj-Ac-vfv" firstAttribute="centerY" secondItem="jyi-YZ-43k" secondAttribute="centerY" id="ORC-CV-3s1"/>
+                                                <constraint firstItem="L4S-h5-HGI" firstAttribute="leading" secondItem="ljf-Dp-5Qs" secondAttribute="trailing" constant="40" id="Srb-w2-7WY"/>
+                                                <constraint firstItem="jyi-YZ-43k" firstAttribute="leading" secondItem="L4S-h5-HGI" secondAttribute="trailing" constant="40" id="UPz-9m-ZZK"/>
+                                                <constraint firstItem="ljf-Dp-5Qs" firstAttribute="leading" secondItem="e22-vo-a5H" secondAttribute="leading" constant="40" id="g5n-4d-7WI"/>
+                                                <constraint firstItem="L4S-h5-HGI" firstAttribute="centerY" secondItem="ljf-Dp-5Qs" secondAttribute="centerY" id="o4d-ow-MDY"/>
+                                                <constraint firstItem="8Zj-Ac-vfv" firstAttribute="leading" secondItem="jyi-YZ-43k" secondAttribute="trailing" constant="40" id="yn1-ya-ifG"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.84168865435356199" horizontal="YES" id="Dfa-rQ-2d2">
+                                    <rect key="frame" x="1" y="161" width="558" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="XOB-Yo-ZtX">
+                                    <rect key="frame" x="-100" y="-100" width="16" height="268"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="hRo-lQ-MUZ" firstAttribute="top" secondItem="pGq-VP-J4J" secondAttribute="top" id="IqT-mD-WXH"/>
+                            <constraint firstItem="hRo-lQ-MUZ" firstAttribute="centerX" secondItem="pGq-VP-J4J" secondAttribute="centerX" id="JVK-4X-3aj"/>
+                            <constraint firstItem="hRo-lQ-MUZ" firstAttribute="leading" secondItem="pGq-VP-J4J" secondAttribute="leading" id="WWE-RK-QaS"/>
+                            <constraint firstItem="hRo-lQ-MUZ" firstAttribute="centerY" secondItem="pGq-VP-J4J" secondAttribute="centerY" id="llX-IC-12q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="J1c-zs-iMy"/>
+                        <viewLayoutGuide key="layoutMargins" id="pGq-VP-J4J"/>
+                    </view>
+                </viewController>
+                <customObject id="N4I-vm-XIT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-54" y="373"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Typer I" width="276" height="239.5"/>
+        <image name="Typer II" width="433" height="306.5"/>
+        <image name="iPhone" width="250" height="144.5"/>
+        <image name="olympia" width="333" height="265.5"/>
+        <image name="smith-cornoa" width="497.5" height="582"/>
+    </resources>
 </document>

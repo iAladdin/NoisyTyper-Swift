@@ -9,20 +9,28 @@
 import Cocoa
 import AVFoundation
 import Darwin
+import SnapKit
+
+
+
+let kThemeKey = "ConfigThemeKey"
+let kSoundVolume = "ConfigSoundVolumeKey"
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    var configWC:NTWindowController? = nil
 
     var scrollDn:AVAudioPlayer? = nil
     var scrollUp:AVAudioPlayer? = nil
     var backspace:AVAudioPlayer? = nil
     var soundSpace:AVAudioPlayer? = nil
     var soundReturn:AVAudioPlayer? = nil
+
+    var currentThemeID:Int = 0
     
-    var currentTheme:String? = "Typer I"
-    var themeItem1:NSMenuItem = NSMenuItem(title:"Typer I", action: #selector(changeTheme), keyEquivalent:"")
-    var themeItem2:NSMenuItem = NSMenuItem(title:"Typer II", action: #selector(changeTheme), keyEquivalent:"")
-    var themeItem3:NSMenuItem = NSMenuItem(title:"iPhone", action: #selector(changeTheme), keyEquivalent:"")
+    
+    var themeItems:[NSMenuItem] = []
     
     var functionsKeyTempPool:[AVAudioPlayer?] = []
     
@@ -32,45 +40,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var volumeLevel:Float = 1.0
     
-    func createMenu(){
-        self.menuItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        self.menuItem?.title = ""
-        let image = NSImage(named: NSImage.Name(rawValue: "menuItem"))
-        image?.isTemplate = true
-        self.menuItem?.image = image
-        self.menuItem?.highlightMode = true
-        
-        let menu = NSMenu()
-        menu.addItem(NSMenuItem(title: "🔈", action: nil, keyEquivalent: ""))
-        let soundSliderItem = NSMenuItem()
-        let soundSliderView = NSSlider()
-        soundSliderView.setFrameSize(NSSize(width: 160, height: 30))
-        soundSliderItem.title = "Slider"
-        soundSliderItem.view = soundSliderView
-        soundSliderView.maxValue = 1.0
-        soundSliderView.minValue = 0.0
-        soundSliderView.isContinuous = true
-        soundSliderView.target = self
-        soundSliderView.action = #selector(configVolume)
-        soundSliderView.floatValue = self.volumeLevel
-        menu.addItem(soundSliderItem)
-        menu.addItem(NSMenuItem.separator())
-        
-        
-        let themeMenuItem = NSMenuItem(title: "🎼", action: nil, keyEquivalent: "")
-        menu.addItem(themeMenuItem)
-        
-        menu.addItem(themeItem1)
-        menu.addItem(themeItem2)
-        menu.addItem(themeItem3)
-    
-        menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title:"❌", action: #selector(exit), keyEquivalent:""))
-
-        self.menuItem?.menu = menu
-    }
-    
-
     func applicationDidFinishLaunching(_ notification: Notification) {
         if self.acquirePrivileges() {
             self.startup()
@@ -78,14 +47,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func startup(){
+        self.currentThemeID = UserDefaults.standard.integer(forKey: kThemeKey)
         
-        if let cacheTheme = UserDefaults.standard.string(forKey: "NoisyTyperUserSettings-Theme"){
-            self.currentTheme = cacheTheme
-        }
-        
+        ThemeMananger.shared.loadThemes()
         self.loadVolume()
-        self.loadSounds()
         
+        self.loadSoundsByCurrentConfig()
         self.createMenu()
         self.updateTheme()
         
@@ -94,13 +61,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
     }
-    func loadVolume(){
-        self.volumeLevel = UserDefaults.standard.float(forKey: "NoisyTyperUserSettings-VolumeLevel")
+    
+    func loadThemes(_ menu:NSMenu){
+        for (index,theme) in ThemeMananger.shared.themes.enumerated() {
+            let themeName = theme["displayName"] as! String
+            let item = createSFXItem(title:themeName , tag: index, selector: #selector(newChangeTheme))
+            self.themeItems.append(item)
+            menu.addItem(item)
+        }
     }
     
-    func loadSound(_ name:String)->AVAudioPlayer? {
+    func loadVolume(){
+        self.volumeLevel = UserDefaults.standard.float(forKey: kSoundVolume)
+    }
+    
+    func loadSound(_ theme:String, name:String)->AVAudioPlayer? {
         var player:AVAudioPlayer?
-        if let soundURL = Bundle.main.url(forResource: name, withExtension: "mp3") {
+        if let soundURL = Bundle.main.url(forResource: name, withExtension: "mp3",subdirectory: "SFX/\(theme)") {
             do {
                 player = try AVAudioPlayer(contentsOf: soundURL)
             } catch {
@@ -118,69 +95,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         soundReturn = nil
         soundKey.removeAll()
     }
-    func loadSounds(){
+    
+    func loadSoundsByCurrentConfig(){
         clearSounds()
-        switch self.currentTheme {
-        case "Typer I":
-            loadSoundsTheme1()
-            break;
-        case "Typer II":
-            loadSoundsTheme2()
-            break;
-        case "iPhone":
-            loadSoundsTheme3()
-            break;
-        default:
-            break;
+        let themeInfo = ThemeMananger.shared.themes[self.currentThemeID]
+        let themePath = themeInfo["path"] as! String
+        scrollDn = loadSound(themePath,name: themeInfo["scrollDownKey"] as! String)
+        scrollUp = loadSound(themePath,name: themeInfo["scrollUpKey"] as! String)
+        backspace = loadSound(themePath,name: themeInfo["backspaceKey"] as! String)
+        soundSpace = loadSound(themePath,name: themeInfo["spaceKey"] as! String )
+        soundReturn = loadSound(themePath,name: themeInfo["returnKey"] as! String)
+        let basicKeyList = themeInfo["basicKey"] as! [String]
+        for basicKey in basicKeyList {
+            soundKey.append(loadSound(themePath,name: basicKey))
         }
         playTestSound()
     }
     
-    func loadSoundsTheme1(){
-        scrollDn = loadSound("scrollDown")
-        scrollUp = loadSound("scrollUp")
-        backspace = loadSound("backspace")
-        soundSpace = loadSound("space-new")
-        soundReturn = loadSound("return-new")
-        soundKey.append(loadSound("key-new-01"))
-        soundKey.append(loadSound("key-new-02"))
-        soundKey.append(loadSound("key-new-03"))
-        soundKey.append(loadSound("key-new-04"))
-        soundKey.append(loadSound("key-new-05"))
-    }
-    
-    func loadSoundsTheme2(){
-        scrollDn = loadSound("scrollDown")
-        scrollUp = loadSound("scrollUp")
-        backspace = loadSound("backspace")
-        soundSpace = loadSound("space")
-        soundReturn = loadSound("return")
-        soundKey.append(loadSound("key-01"))
-        soundKey.append(loadSound("key-02"))
-        soundKey.append(loadSound("key-03"))
-        soundKey.append(loadSound("key-04"))
-    }
-    
-    func loadSoundsTheme3(){
-        scrollDn = loadSound("KeypressStandard")
-        scrollUp = loadSound("KeypressStandard")
-        backspace = loadSound("KeypressDelete")
-        soundSpace = loadSound("KeypressSpacebar")
-        soundReturn = loadSound("KeypressReturn")
-        soundKey.append(loadSound("KeypressStandard"))
-        soundKey.append(loadSound("KeypressStandard"))
-        soundKey.append(loadSound("KeypressStandard"))
-        soundKey.append(loadSound("KeypressStandard"))
-        soundKey.append(loadSound("KeypressStandard"))
-    }
-    
     func keyWasPressedFunction(event:NSEvent){
+        
         if(self.volumeLevel == 0){
             return
         }
         
         let key = event.keyCode
-
+        
         if( key == 125 ){
             scrollDn?.pan = 0.7
             scrollDn?.rate = Float.random(0.85, 1.0)
@@ -244,6 +183,36 @@ extension AppDelegate{
     @objc func exit(){
         NSApp.terminate(nil)
     }
+    
+    @objc func showStore(){
+        if(self.configWC == nil){
+            let storyboard = NSStoryboard(name: "Main", bundle: nil)
+            self.configWC = (storyboard.instantiateController(withIdentifier: "Store") as! NSWindowController as! NTWindowController)
+        }
+        if let storeWindow = self.configWC?.window {
+            storeWindow.makeKeyAndOrderFront(self)
+            self.updateStoreStyle()
+        }
+        NSApp.activate(ignoringOtherApps: true)
+        
+    }
+    
+    func updateStoreStyle() {
+        if(self.configWC != nil){
+            if let storeWindow = self.configWC?.window {
+                for themeID in 0..<self.themeItems.count {
+                    if let buttonView = storeWindow.contentView?.viewWithTag(themeID){
+                        let button:NSButton = buttonView as! NSButton
+                        let buttonTitleColor:NSColor = self.currentThemeID == themeID ? NSColor.white : NSColor.disabledControlTextColor;
+                        if let mutableAttributedTitle = button.attributedTitle.mutableCopy() as? NSMutableAttributedString {
+                            mutableAttributedTitle.addAttribute(.foregroundColor, value: buttonTitleColor, range: NSRange(location: 0, length: mutableAttributedTitle.length))
+                            button.attributedTitle = mutableAttributedTitle
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     func playTestSound(){
         soundKey[0]?.pan = 0.3
@@ -270,40 +239,44 @@ extension AppDelegate{
     }
     
     func updateVolume(){
-        UserDefaults.standard.set(volumeLevel, forKey: "NoisyTyperUserSettings-VolumeLevel")
+        UserDefaults.standard.set(volumeLevel, forKey: kSoundVolume)
         UserDefaults.standard.synchronize()
     }
     
-    @objc func changeTheme(target:NSMenuItem){
-        themeItem1.state = .off
-        themeItem2.state = .off
-        themeItem3.state = .off
-        if(self.currentTheme != target.title){
-            self.currentTheme = target.title
-            loadSounds()
+    @objc func newChangeTheme(target:NSMenuItem) {
+        if(self.currentThemeID != target.tag){
+            self.currentThemeID = target.tag
+            loadSoundsByCurrentConfig()
         }else{
             self.playTestSound()
         }
-        updateTheme()
+        self.updateTheme()
+        self.updateStoreStyle()
     }
     
-    func updateTheme(){
-        UserDefaults.standard.set(currentTheme, forKey: "NoisyTyperUserSettings-Theme")
-        UserDefaults.standard.synchronize()
-        switch self.currentTheme {
-        case "Typer I":
-            themeItem1.state = .on
-            break
-        case "Typer II":
-            themeItem2.state = .on
-            break
-        case "iPhone":
-            themeItem3.state = .on
-            break
-        default:
-            themeItem1.state = .on
-            break;
+    func newChangeThemeFromStore(target:NSButton) {
+        if(self.currentThemeID != target.tag){
+            self.currentThemeID = target.tag
+            loadSoundsByCurrentConfig()
+        }else{
+            self.playTestSound()
         }
+        self.updateTheme()
+        self.updateStoreStyle()
+    }
+    
+    
+    
+    func updateTheme(){
+        for item in self.themeItems {
+            if item.tag == currentThemeID {
+                item.state = .on
+            }else{
+                item.state = .off
+            }
+        }
+        UserDefaults.standard.set(currentThemeID, forKey: kThemeKey)
+        UserDefaults.standard.synchronize()
     }
 
     func acquirePrivileges() -> Bool {

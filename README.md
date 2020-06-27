@@ -1,5 +1,6 @@
 <p align="center" >
-  <img src="https://raw.githubusercontent.com/iAladdin/NoisyTyper-Swift/master/NoisyTyper/Assets.xcassets/AppIcon.appiconset/1024.png" alt="NoisyTyper" title="NoisyTyper">
+  <img src="https://raw.githubusercontent.com/iAladdin/NoisyTyper-Swift/master/NoisyTyper/Assets.xcassets/AppIcon.appiconset/256.png" alt="NoisyTyper" title="NoisyTyper">
+  <img src="https://user-images.githubusercontent.com/209606/85928551-641c9000-b8e0-11ea-8fcb-a7d1764055d4.png" alt="Typewriter Gallery" title="Typewriter Gallery">
 </p>
 
 # [NoisyTyper-Swift](http://ialaddin.github.io/NoisyTyper-Swift/)
@@ -12,7 +13,7 @@ Using Swift and native framework to implement NoisyTyper.
 Enjõy!
 # Download
 
-click to [download](https://github.com/iAladdin/NoisyTyper-Swift/releases/tag/v0.1).
+click to [download](https://github.com/iAladdin/NoisyTyper-Swift/releases/tag/v0.2).
 
 # How to install
 

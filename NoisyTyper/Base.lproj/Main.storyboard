@@ -688,6 +688,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="937" height="161"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                             <subviews>
+                                                <button tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="ljf-Dp-5Qs">
+                                                    <rect key="frame" x="40" y="16" width="130" height="130"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="130" id="9m0-qT-7hg"/>
+                                                        <constraint firstAttribute="height" constant="130" id="sbS-S2-UY1"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="square" title="Typer I" bezelStyle="shadowlessSquare" image="Typer I" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="VxF-xe-F8z">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system" size="12"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="r8j-Tt-MDq"/>
+                                                    </connections>
+                                                </button>
                                                 <button tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="L4S-h5-HGI">
                                                     <rect key="frame" x="210" y="16" width="130" height="130"/>
                                                     <constraints>
@@ -730,8 +744,8 @@
                                                         <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="aMD-FL-qCI"/>
                                                     </connections>
                                                 </button>
-                                                <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H28-ui-Ifr">
-                                                    <rect key="frame" x="747" y="100" width="130" height="130"/>
+                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="H28-ui-Ifr">
+                                                    <rect key="frame" x="720" y="16" width="130" height="130"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="YFP-H8-kfv"/>
                                                         <constraint firstAttribute="height" constant="130" id="zib-nv-yT4"/>
@@ -742,20 +756,6 @@
                                                     </buttonCell>
                                                     <connections>
                                                         <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="x6w-oa-cay"/>
-                                                    </connections>
-                                                </button>
-                                                <button tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="ljf-Dp-5Qs">
-                                                    <rect key="frame" x="40" y="16" width="130" height="130"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="130" id="9m0-qT-7hg"/>
-                                                        <constraint firstAttribute="height" constant="130" id="sbS-S2-UY1"/>
-                                                    </constraints>
-                                                    <buttonCell key="cell" type="square" title="Typer I" bezelStyle="shadowlessSquare" image="Typer I" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="VxF-xe-F8z">
-                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="system" size="12"/>
-                                                    </buttonCell>
-                                                    <connections>
-                                                        <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="r8j-Tt-MDq"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -774,7 +774,7 @@
                                         </view>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.84168865435356199" horizontal="YES" id="Dfa-rQ-2d2">
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.55408970976253302" horizontal="YES" id="Dfa-rQ-2d2">
                                     <rect key="frame" x="1" y="161" width="558" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>

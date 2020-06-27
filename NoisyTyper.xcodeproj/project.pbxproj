@@ -135,7 +135,6 @@
 				83085C761C157A9400BFD82D /* Sources */,
 				83085C771C157A9400BFD82D /* Frameworks */,
 				83085C781C157A9400BFD82D /* Resources */,
-				836E78CF1C15EF7300BE4FF0 /* ShellScript */,
 				74B593B1B156723F406D5D67 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -215,19 +214,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NoisyTyper/Pods-NoisyTyper-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		836E78CF1C15EF7300BE4FF0 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
 		};
 		FF1845ABA3A5484133AEDA75 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -397,7 +383,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 320;
+				CURRENT_PROJECT_VERSION = 327;
 				DEVELOPMENT_TEAM = 83A66Y7RYD;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = NoisyTyper/Info.plist;
@@ -420,7 +406,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 320;
+				CURRENT_PROJECT_VERSION = 327;
 				DEVELOPMENT_TEAM = 83A66Y7RYD;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = NoisyTyper/Info.plist;

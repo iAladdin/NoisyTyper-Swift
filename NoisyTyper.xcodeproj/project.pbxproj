@@ -166,10 +166,9 @@
 			};
 			buildConfigurationList = 83085C751C157A9400BFD82D /* Build configuration list for PBXProject "NoisyTyper" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);

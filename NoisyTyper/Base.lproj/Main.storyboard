@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17132"/>
-        <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -678,8 +677,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="hRo-lQ-MUZ">
+                            <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="hRo-lQ-MUZ">
                                 <rect key="frame" x="20" y="20" width="560" height="178"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" autoresizesSubviews="NO" drawsBackground="NO" id="U9W-5F-0D3">
                                     <rect key="frame" x="1" y="1" width="558" height="176"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -696,21 +696,21 @@
                                                     </constraints>
                                                     <buttonCell key="cell" type="square" title="Typer II" bezelStyle="shadowlessSquare" image="Typer II" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="TpQ-W0-4Aq">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <font key="font" metaFont="controlContent"/>
                                                     </buttonCell>
                                                     <connections>
                                                         <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="NqN-8q-bPR"/>
                                                     </connections>
                                                 </button>
                                                 <button autoresizesSubviews="NO" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="jyi-YZ-43k" userLabel="smith">
-                                                    <rect key="frame" x="380" y="16" width="130" height="130"/>
+                                                    <rect key="frame" x="394" y="16" width="100" height="130"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="130" id="XZf-yh-twE"/>
-                                                        <constraint firstAttribute="width" constant="130" id="ejW-R1-xS6"/>
+                                                        <constraint firstAttribute="width" constant="100" id="ejW-R1-xS6"/>
                                                     </constraints>
                                                     <buttonCell key="cell" type="square" title="Smith Corona" bezelStyle="shadowlessSquare" image="smith-cornoa" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="cNV-yn-6kK">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                     <connections>
                                                         <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="mAF-dt-0vm"/>
@@ -724,21 +724,21 @@
                                                     </constraints>
                                                     <buttonCell key="cell" type="square" title="Olympia" bezelStyle="shadowlessSquare" image="olympia" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="N0D-42-zwO">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <font key="font" metaFont="controlContent"/>
                                                     </buttonCell>
                                                     <connections>
                                                         <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="aMD-FL-qCI"/>
                                                     </connections>
                                                 </button>
-                                                <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H28-ui-Ifr">
-                                                    <rect key="frame" x="747" y="100" width="130" height="130"/>
+                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="H28-ui-Ifr">
+                                                    <rect key="frame" x="720" y="16" width="130" height="130"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="YFP-H8-kfv"/>
                                                         <constraint firstAttribute="height" constant="130" id="zib-nv-yT4"/>
                                                     </constraints>
                                                     <buttonCell key="cell" type="square" title="iPhone" bezelStyle="shadowlessSquare" image="iPhone" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="N4l-Uv-Fqw">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <font key="font" metaFont="controlContent"/>
                                                     </buttonCell>
                                                     <connections>
                                                         <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="x6w-oa-cay"/>
@@ -752,7 +752,7 @@
                                                     </constraints>
                                                     <buttonCell key="cell" type="square" title="Typer I" bezelStyle="shadowlessSquare" image="Typer I" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="VxF-xe-F8z">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="cellTitle"/>
+                                                        <font key="font" metaFont="controlContent"/>
                                                     </buttonCell>
                                                     <connections>
                                                         <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="r8j-Tt-MDq"/>
@@ -766,15 +766,15 @@
                                                 <constraint firstItem="H28-ui-Ifr" firstAttribute="leading" secondItem="8Zj-Ac-vfv" secondAttribute="trailing" constant="40" id="FmK-Uc-OMH"/>
                                                 <constraint firstItem="8Zj-Ac-vfv" firstAttribute="centerY" secondItem="jyi-YZ-43k" secondAttribute="centerY" id="ORC-CV-3s1"/>
                                                 <constraint firstItem="L4S-h5-HGI" firstAttribute="leading" secondItem="ljf-Dp-5Qs" secondAttribute="trailing" constant="40" id="Srb-w2-7WY"/>
-                                                <constraint firstItem="jyi-YZ-43k" firstAttribute="leading" secondItem="L4S-h5-HGI" secondAttribute="trailing" constant="40" id="UPz-9m-ZZK"/>
+                                                <constraint firstItem="jyi-YZ-43k" firstAttribute="leading" secondItem="L4S-h5-HGI" secondAttribute="trailing" constant="54" id="UPz-9m-ZZK"/>
                                                 <constraint firstItem="ljf-Dp-5Qs" firstAttribute="leading" secondItem="e22-vo-a5H" secondAttribute="leading" constant="40" id="g5n-4d-7WI"/>
                                                 <constraint firstItem="L4S-h5-HGI" firstAttribute="centerY" secondItem="ljf-Dp-5Qs" secondAttribute="centerY" id="o4d-ow-MDY"/>
-                                                <constraint firstItem="8Zj-Ac-vfv" firstAttribute="leading" secondItem="jyi-YZ-43k" secondAttribute="trailing" constant="40" id="yn1-ya-ifG"/>
+                                                <constraint firstItem="8Zj-Ac-vfv" firstAttribute="leading" secondItem="jyi-YZ-43k" secondAttribute="trailing" constant="56" id="yn1-ya-ifG"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Dfa-rQ-2d2">
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.84168865435356199" horizontal="YES" id="Dfa-rQ-2d2">
                                     <rect key="frame" x="1" y="161" width="558" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -783,15 +783,19 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4F8-o1-AFj">
+                                <rect key="frame" x="210" y="220" width="181" height="23"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Typewriter Gallery" id="l0w-Rs-hUk">
+                                    <font key="font" metaFont="systemBold" size="20"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="hRo-lQ-MUZ" firstAttribute="top" secondItem="pGq-VP-J4J" secondAttribute="top" id="IqT-mD-WXH"/>
-                            <constraint firstItem="hRo-lQ-MUZ" firstAttribute="centerX" secondItem="pGq-VP-J4J" secondAttribute="centerX" id="JVK-4X-3aj"/>
-                            <constraint firstItem="hRo-lQ-MUZ" firstAttribute="leading" secondItem="pGq-VP-J4J" secondAttribute="leading" id="WWE-RK-QaS"/>
-                            <constraint firstItem="hRo-lQ-MUZ" firstAttribute="centerY" secondItem="pGq-VP-J4J" secondAttribute="centerY" id="llX-IC-12q"/>
+                            <constraint firstItem="4F8-o1-AFj" firstAttribute="top" secondItem="OeR-V6-weF" secondAttribute="top" constant="27" id="dAh-CD-3NU"/>
+                            <constraint firstItem="4F8-o1-AFj" firstAttribute="centerX" secondItem="OeR-V6-weF" secondAttribute="centerX" id="oZw-IP-bUv"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="J1c-zs-iMy"/>
-                        <viewLayoutGuide key="layoutMargins" id="pGq-VP-J4J"/>
                     </view>
                 </viewController>
                 <customObject id="N4I-vm-XIT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

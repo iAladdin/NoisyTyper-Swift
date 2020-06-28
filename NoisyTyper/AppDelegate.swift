@@ -72,7 +72,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func loadVolume(){
-        self.volumeLevel = UserDefaults.standard.float(forKey: kSoundVolume)
+        if((UserDefaults.standard.object(forKey: kSoundVolume)) != nil){
+            self.volumeLevel = UserDefaults.standard.float(forKey: kSoundVolume)
+        }else{
+            self.volumeLevel = 0.5
+        }
     }
     
     func loadSound(_ theme:String, name:String)->AVAudioPlayer? {

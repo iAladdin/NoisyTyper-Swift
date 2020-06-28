@@ -18,13 +18,20 @@ extension AppDelegate{
         self.menuItem?.highlightMode = true
         
         let menu = NSMenu()
+        // Version Info
+        if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            if let nsObject = Bundle.main.infoDictionary?["CFBundleVersion"] as? String{
+                menu.addItem(NSMenuItem(title:"NoisyTyper Version:\(String(describing: appVersion))(\(String(describing: nsObject)))", action: nil, keyEquivalent:""))
+            }
+        }
+        
         menu.addItem(NSMenuItem(title: "Volume", action: nil, keyEquivalent: ""))
         let soundSliderItem = createVolumeItem(target: self,selector: #selector(configVolume),volumeLevel: self.volumeLevel)
         menu.addItem(soundSliderItem)
         menu.addItem(NSMenuItem.separator())
         
         
-        let themeMenuItem = NSMenuItem(title: "SFX", action: nil, keyEquivalent: "")
+        let themeMenuItem = NSMenuItem(title: "SFX Themes", action: nil, keyEquivalent: "")
         menu.addItem(themeMenuItem)
         
         loadThemes(menu)
@@ -34,7 +41,6 @@ extension AppDelegate{
         
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title:"Quit", action: #selector(exit), keyEquivalent:""))
-
         self.menuItem?.menu = menu
     }
 }

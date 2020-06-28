@@ -26,9 +26,9 @@ click to [download](https://github.com/iAladdin/NoisyTyper-Swift/releases/tag/v0
 # Contributors
 
 <a href="https://github.com/iAladdin/NoisyTyper-Swift/graphs/contributors">
-  <img src="https://contributors-img.firebaseapp.com/image?repo=iAladdin/NoisyTyper-Swift" />
+  <img src="https://contributors-img.web.app/image?repo=iAladdin/NoisyTyper-Swift" />
 </a>
 
-Made with [contributors-img](https://contributors-img.firebaseapp.com).
+Made with [contributors-img](https://contributors-img.web.app).
 
 Special thanks @shokuninstudio for the artwork and iOS sound theme, credits belongs to @shokuninstudio.

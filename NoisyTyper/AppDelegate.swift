@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var functionsKeyTempPool:[AVAudioPlayer?] = []
     
-    var soundKey:[AVAudioPlayer?] = []
+    var soundKeyPool:[AVAudioPlayer?] = []
 
     var menuItem:NSStatusItem?
     
@@ -97,7 +97,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         backspace = nil
         soundSpace = nil
         soundReturn = nil
-        soundKey.removeAll()
+        soundKeyPool.removeAll()
     }
     
     func loadSoundsByCurrentConfig(){
@@ -111,7 +111,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         soundReturn = loadSound(themePath,name: themeInfo["returnKey"] as! String)
         let basicKeyList = themeInfo["basicKey"] as! [String]
         for basicKey in basicKeyList {
-            soundKey.append(loadSound(themePath,name: basicKey))
+            soundKeyPool.append(loadSound(themePath,name: basicKey))
+            soundKeyPool.append(loadSound(themePath,name: basicKey))
         }
         playTestSound()
     }
@@ -157,25 +158,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         else{
             let freeKeyplayer = self.findFreeKeyplayer()
             freeKeyplayer?.rate =  Float.random(0.98, 1.02)
-            freeKeyplayer?.volume = Float.random(self.volumeLevel - 0.4, self.volumeLevel)
+            let randomVolumeLevel = Float.random(self.volumeLevel - 0.4 , self.volumeLevel)
+            freeKeyplayer?.volume = randomVolumeLevel < 0.1 ? 0.1 : randomVolumeLevel
             if( key == 12 || key == 13 || key == 0 || key == 1 || key == 6 || key == 7 ){
                 freeKeyplayer?.pan = -0.65
             }else if( key == 35 || key == 37 || key == 43 || key == 31 || key == 40 || key == 46 ){
                 freeKeyplayer?.pan = 0.65
             }
             else{
-                freeKeyplayer?.pan = Float.random(-0.3, 0.3)
+                freeKeyplayer?.pan = Float.random(-0.2, 0.2)
             }
             freeKeyplayer?.play()
         }
     }
     func findFreeKeyplayer()->AVAudioPlayer?{
         var result: AVAudioPlayer?
-        repeat {
-            let which = Int.random(0, soundKey.count - 1)
-            result = soundKey[which]
-            
-        }while (result?.isPlaying == true)
+        for soundPlayer in soundKeyPool {
+            if(soundPlayer?.isPlaying == false){
+                result = soundPlayer
+            }
+        }
         return result
     }
     
@@ -219,9 +221,9 @@ extension AppDelegate{
     }
 
     func playTestSound(){
-        soundKey[0]?.pan = 0.3
-        soundKey[0]?.volume = self.volumeLevel
-        soundKey[0]?.playNoisy()
+        soundKeyPool[0]?.pan = 0.3
+        soundKeyPool[0]?.volume = self.volumeLevel
+        soundKeyPool[0]?.playNoisy()
     }
 
     func playOpenSound(){

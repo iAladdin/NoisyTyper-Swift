@@ -1,5 +1,5 @@
 # [NoisyTyper-Swift](http://ialaddin.github.io/NoisyTyper-Swift/)
-[![CodeFactor](https://www.codefactor.io/repository/github/ialaddin/noisytyper-swift/badge)](https://www.codefactor.io/repository/github/ialaddin/noisytyper-swift)
+[![CodeFactor](https://www.codefactor.io/repository/github/ialaddin/noisytyper-swift/badge)](https://www.codefactor.io/repository/github/ialaddin/noisytyper-swift) [![Join the chat at https://gitter.im/NoisyTyper/community](https://badges.gitter.im/NoisyTyper/community.svg)](https://gitter.im/NoisyTyper/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 <p align="center" >
   <img src="https://raw.githubusercontent.com/iAladdin/NoisyTyper-Swift/master/NoisyTyper/Assets.xcassets/AppIcon.appiconset/256.png" alt="NoisyTyper" title="NoisyTyper">

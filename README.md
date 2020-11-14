@@ -16,7 +16,7 @@ Using Swift and native framework to implement NoisyTyper.
 Enjõy!
 # Download
 
-click to [download](https://github.com/iAladdin/NoisyTyper-Swift/releases/tag/v0.2).
+click to [download](https://github.com/iAladdin/NoisyTyper-Swift/releases/tag/v0.2-340).
 
 # How to install
 

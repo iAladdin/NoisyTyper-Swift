@@ -137,11 +137,12 @@ extension AppDelegate{
         UserDefaults.standard.synchronize()
     }
 
-    func acquirePrivileges() -> Bool {
+    @objc func acquirePrivileges() -> Bool {
         let trusted = kAXTrustedCheckOptionPrompt.takeUnretainedValue()
         let privOptions = [String(trusted): true]
         let accessEnabled = AXIsProcessTrustedWithOptions(privOptions as CFDictionary)
         if accessEnabled != true {
+            openSettingPanel()
             let alert = NSAlert()
             alert.messageText = "Enable NoisyTyper Using Accessibility feature"
             alert.informativeText = "Once you have enabled NoisyTyper in System Preferences->Security and Privacy -> Privacy, click OK."
@@ -151,11 +152,23 @@ extension AppDelegate{
                 if AXIsProcessTrustedWithOptions(privOptions as CFDictionary) == true {
                     self.startup()
                 } else {
-                    NSApp.terminate(self)
+                    perform(#selector(self.acquirePrivileges),with: nil,afterDelay: 1)
                 }
             }
         }
         return accessEnabled == true
+    }
+    
+    
+    func openSettingPanel() -> Void {
+        let script = "tell application \"System Preferences\" \n reveal anchor \"Privacy_Accessibility\" of pane id \"com.apple.preference.security\" \n activate \n end tell"
+        var error: NSDictionary?
+        if let scriptObject = NSAppleScript(source: script) {
+            scriptObject.executeAndReturnError(&error)
+            if (error != nil) {
+                print("Error on next track: \(String(describing: error))")
+            }
+        }
     }
 }
 

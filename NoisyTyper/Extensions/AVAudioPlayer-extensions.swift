@@ -9,14 +9,14 @@
 import AVFoundation
 import AppKit
 
-extension AppDelegate:AVAudioPlayerDelegate{
+extension ThemeMananger:AVAudioPlayerDelegate{
 
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         autoreleasepool {
             player.stop()
             var indexOfPlayer = LONG_MAX as Int
             var index = 0 as Int
-            var tempArray = Array(self.functionsKeyTempPool)
+            var tempArray = Array(ThemeMananger.shared.functionsKeyTempPool)
             for item in tempArray{
                 if item == player {
                     indexOfPlayer = index
@@ -31,8 +31,8 @@ extension AppDelegate:AVAudioPlayerDelegate{
 
 extension AVAudioPlayer{
     public func playNoisy(){
-        let appDelegate = NSApp.delegate as! AppDelegate
-        if appDelegate.volumeLevel == 0.0 {
+        let tManager = ThemeMananger.shared
+        if tManager.volumeLevel == 0.0 {
             return
         }else{
             if self.isPlaying{
@@ -45,16 +45,16 @@ extension AVAudioPlayer{
                     if let url = self.url{
                         autoreleasepool {
                             var tempPlayer:AVAudioPlayer?
-                            if appDelegate.functionsKeyTempPool.count > 30{
+                            if tManager.functionsKeyTempPool.count > 30{
                                 return
                             }
                             do {
                                 tempPlayer = try AVAudioPlayer(contentsOf: url)
-                                appDelegate.functionsKeyTempPool.append(tempPlayer)
+                                tManager.functionsKeyTempPool.append(tempPlayer)
                                 tempPlayer?.pan = self.pan
                                 tempPlayer?.volume = self.volume
                                 tempPlayer?.rate = self.rate
-                                tempPlayer?.delegate = appDelegate
+                                tempPlayer?.delegate = tManager
                                 tempPlayer?.play()
                                 tempPlayer = nil
                             }catch{

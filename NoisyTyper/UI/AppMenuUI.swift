@@ -26,7 +26,7 @@ extension AppDelegate{
         }
         
         menu.addItem(NSMenuItem(title: "Volume", action: nil, keyEquivalent: ""))
-        let soundSliderItem = createVolumeItem(target: self,selector: #selector(configVolume),volumeLevel: self.volumeLevel)
+        let soundSliderItem = createVolumeItem(target: self,selector: #selector(configVolume),volumeLevel: ThemeMananger.shared.volumeLevel)
         menu.addItem(soundSliderItem)
         menu.addItem(NSMenuItem.separator())
         
@@ -34,7 +34,7 @@ extension AppDelegate{
         let themeMenuItem = NSMenuItem(title: "SFX Themes", action: nil, keyEquivalent: "")
         menu.addItem(themeMenuItem)
         
-        loadThemes(menu)
+        composeMenuFromThemes(menu)
     
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title:"Gallery", action: #selector(showStore), keyEquivalent:","))

@@ -696,7 +696,7 @@
                                                     </constraints>
                                                     <buttonCell key="cell" type="square" title="Typer II" bezelStyle="shadowlessSquare" image="Typer II" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="TpQ-W0-4Aq">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="controlContent"/>
+                                                        <font key="font" metaFont="label" size="12"/>
                                                     </buttonCell>
                                                     <connections>
                                                         <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="NqN-8q-bPR"/>
@@ -724,7 +724,7 @@
                                                     </constraints>
                                                     <buttonCell key="cell" type="square" title="Olympia" bezelStyle="shadowlessSquare" image="olympia" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="N0D-42-zwO">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="controlContent"/>
+                                                        <font key="font" metaFont="label" size="12"/>
                                                     </buttonCell>
                                                     <connections>
                                                         <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="aMD-FL-qCI"/>
@@ -738,7 +738,7 @@
                                                     </constraints>
                                                     <buttonCell key="cell" type="square" title="iPhone" bezelStyle="shadowlessSquare" image="iPhone" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="N4l-Uv-Fqw">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="controlContent"/>
+                                                        <font key="font" metaFont="label" size="12"/>
                                                     </buttonCell>
                                                     <connections>
                                                         <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="x6w-oa-cay"/>
@@ -752,7 +752,7 @@
                                                     </constraints>
                                                     <buttonCell key="cell" type="square" title="Typer I" bezelStyle="shadowlessSquare" image="Typer I" imagePosition="above" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="VxF-xe-F8z">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="controlContent"/>
+                                                        <font key="font" metaFont="label" size="12"/>
                                                     </buttonCell>
                                                     <connections>
                                                         <action selector="changeThemeFromStore:" target="LI0-fy-me5" id="r8j-Tt-MDq"/>

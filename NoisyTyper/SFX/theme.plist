@@ -13,6 +13,38 @@
 			<string>iPhone</string>
 			<key>path</key>
 			<string>iPhone</string>
+			<key>type</key>
+			<string>digital</string>
+			<key>basicKey</key>
+			<array>
+				<string>KeyboardBalance</string>
+				<string>KeyboardBalance</string>
+				<string>KeyboardBalance</string>
+				<string>KeyboardBalance</string>
+				<string>KeyboardBalance</string>
+			</array>
+			<key>returnKey</key>
+			<string>KeypressReturn</string>
+			<key>backspaceKey</key>
+			<string>KeypressDelete</string>
+			<key>scrollDownKey</key>
+			<string>KeyboardBalance</string>
+			<key>scrollUpKey</key>
+			<string>KeyboardBalance</string>
+			<key>spaceKey</key>
+			<string>KeypressSpacebar</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>iphone2</string>
+			<key>tag</key>
+			<string>200</string>
+			<key>displayName</key>
+			<string>iPhone2</string>
+			<key>path</key>
+			<string>iPhone2</string>
+			<key>type</key>
+			<string>digital</string>
 			<key>basicKey</key>
 			<array>
 				<string>KeypressStandard</string>
@@ -41,6 +73,8 @@
 			<string>Classic Typewriter I</string>
 			<key>path</key>
 			<string>TypeWriter_Classic_1</string>
+			<key>type</key>
+			<string>physical</string>
 			<key>basicKey</key>
 			<array>
 				<string>key-new-01</string>
@@ -69,6 +103,8 @@
 			<string>Classic Typewriter II</string>
 			<key>path</key>
 			<string>TypeWriter_Classic_2</string>
+			<key>type</key>
+			<string>physical</string>
 			<key>basicKey</key>
 			<array>
 				<string>key-01</string>
@@ -97,6 +133,8 @@
 			<string>1970s Electric Olympia CE12</string>
 			<key>path</key>
 			<string>TypeWriter_1970-s_Electric_Olympia_CE12</string>
+			<key>type</key>
+			<string>physical</string>
 			<key>basicKey</key>
 			<array>
 				<string>key-01</string>
@@ -108,13 +146,13 @@
 			<key>returnKey</key>
 			<string>return</string>
 			<key>backspaceKey</key>
-			<string>backspace</string>
+			<string>key-01</string>
 			<key>scrollDownKey</key>
-			<string>scrollDown</string>
+			<string>key-01</string>
 			<key>scrollUpKey</key>
-			<string>scrollUp</string>
+			<string>key-01</string>
 			<key>spaceKey</key>
-			<string>space</string>
+			<string>key-01</string>
 		</dict>
 		<dict>
 			<key>id</key>
@@ -125,6 +163,8 @@
 			<string>1960s Foley Smith Corona</string>
 			<key>path</key>
 			<string>TypeWriter_Foley_Smith_Corona_1960</string>
+			<key>type</key>
+			<string>physical</string>
 			<key>basicKey</key>
 			<array>
 				<string>key-01</string>
@@ -136,13 +176,13 @@
 			<key>returnKey</key>
 			<string>return</string>
 			<key>backspaceKey</key>
-			<string>backspace</string>
+			<string>key-01</string>
 			<key>scrollDownKey</key>
-			<string>scrollDown</string>
+			<string>key-01</string>
 			<key>scrollUpKey</key>
-			<string>scrollUp</string>
+			<string>key-01</string>
 			<key>spaceKey</key>
-			<string>space</string>
+			<string>key-01</string>
 		</dict>
 	</array>
 	<key>Default</key>
